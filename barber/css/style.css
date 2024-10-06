@@ -30,7 +30,7 @@
     body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    background-color: var(--body-color);
+    background-color: black;
     padding-top: var(--header-height);
     }
     
@@ -54,7 +54,7 @@
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: var(--color-nav);
+    background-color: #000000;
     box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
     z-index: var(--z-fixed);
     }
@@ -67,7 +67,7 @@
     .nav__logo, 
     .nav__burger, 
     .nav__close {
-    color: #000000;
+    color: #ffffff;
     }
     
     .nav__info {
@@ -129,13 +129,13 @@
         width: 0;
     }
     .nav__list {
+        background-color: #000000;
         padding-top: 1rem;
-        background-color: #f6f6f6;
     }
     }
     
     .nav__link {
-        color: #000000;
+        color: #ffff;
         font-weight: var(--font-semi-bold);
         padding: 1.25rem 1.5rem;
         display: flex;
@@ -180,7 +180,7 @@
     .menu_desplegable__link{
     padding: 1.25rem 1.25rem 1.25rem 2.5rem;
     color: #797979;
-    background-color: #f6f6f6;
+    background-color: #111111;
     display: flex;
     align-items: center;
     column-gap: .5rem;
@@ -205,7 +205,7 @@
     transition: max-height .4s ease-out;
     border: 1px solid #434343;
     border-radius: 15px;
-    background: #ffffff;
+    background: #111111;
     
     }
     
@@ -306,220 +306,57 @@
     }
 
     
-
 /*======================= IMAGEN EMPRESA ==========================*/
 
-.img_index{
-    width: 100%;
-    height: 856px;
-    background: url(../img/Logo1.png);
+.hero{
+    height: var(--header-height);
+    background-image: url(/barber/img/ImgHero.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 856px;
+    width: 100%;
     background-position: center;
 }
 
-/*
-.img{
-    height: var(--header-height);
-    width: 100%;
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0 0 0 / 70% );
     height: 856px;
-    background: url(../img/Logo1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}*/
-
-/*======================= SECCION DE LOS NEGOCIOS ==========================*/
-
-.envoltura {
     width: 100%;
-    height: 52rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
 
-.contenedor{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
+    gap: 20px;
 }
 
 
-.card{
-    position: relative;
-    width: 20%;
-    height: 600px;
-    border-radius: .75rem;
-    background-size: cover;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 2rem;
-    margin: 0 10px;
-    display: flex;
-    align-items: flex-end;
-    transition: .6s cubic-bezier(.28, -0.03,0.99 );
-    background-color: #888888 ;
-    transition: width .8s cubic-bezier(0.25, 1, 0.5, 1);
-}
+.contenido-hero h1{
+    color: #b4912a;
+    font-size: 3rem;
+}   
+.contenido-hero h2{
+    color: #b4912a;
+    font-size: 3rem;
+}   
 
-.card > .row{
-    color: white;
-    display: flex;
-    flex-wrap: nowrap;
-}
 
-.card > .row > .titulo{
+.contenido-hero .boton{
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    margin-left: 40px;
-    overflow: hidden;
-    height: 80px;
-    width: 500px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity .3s ease, transform .3s ease;
-    transition: all .3s ease;
+    align-items: center;
+    color: #ffff;
+    height: 60px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: #c0a372;
+    font-weight: bold;
+    font-size: 20px;
+    transition: .5s ease;
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 33%; 
-    opacity: 0; 
-    transition: opacity .8s cubic-bezier(0.25, 1, 0.5, 1), transform .8s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 1;  
-    transform: translateY(100%);
+.contenido-hero .boton:hover{
+    background-color: #d1ba92;
 }
-
-
-.card:hover::before {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.card:hover {
-    width: 800px;
-    transition: width .8s cubic-bezier(0.25, 1, 0.5, 1); 
-}
-
-.card:hover .titulo {
-    opacity: 1;
-    transform: translateY(0); 
-}
-
-
-.card .titulo {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all .3s ease;
-}
-
-input{
-    display: none;
-}
-
-.card[for="c1"]{
-    background: url(../img/Tattoo.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.card[for="c2"]{
-    background: url(../img/Barberia.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.card[for="c3"]{
-    background: url(../img/pigmentacion.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-/* HOVER */
-
-/*
-.card::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 33%; 
-    background-color: rgba(255, 255, 0, 0.7);
-    opacity: 0; 
-    transition: opacity .8s cubic-bezier(0.25, 1, 0.5, 1), transform .8s cubic-bezier(0.25, 1, 0.5, 1);
-    z-index: 1;  
-    transform: translateY(100%);
-}
-
-
-.card:hover::before {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-.card:hover {
-    width: 600px;
-    box-shadow: 0px 10px 30px -5px rgba(208, 0, 0, 0.8);
-    transition: width .8s cubic-bezier(0.25, 1, 0.5, 1); 
-}
-
-.card:hover .titulo {
-    opacity: 1;
-    transform: translateY(0); 
-}
-
-
-.card .titulo {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all .3s ease;
-}
-*/
-
-/* CLICK */
-
-/*
-.card > .row{
-    color: white;
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.card > .row > .titulo{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 40px;
-    overflow: hidden;
-    height: 80px;
-    width: 500px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition-delay: .3s;
-    transition: all .3s ease;
-}
-
-.titulo{
-
-}
-.titulo h1{
-    text-transform: uppercase;
-}
-
-input{
-    display: none;
-}
-
-input:checked + label{
-    width: 600px;
-}*/
