@@ -355,6 +355,21 @@
     background-color: #d1ba92;
 }
 
+@media (max-width: 665px) {
+    .contenido-hero{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 10px;
+    }
+
+    .contenido-hero h1{
+        width: 100%;
+        font-size: 2rem;
+        text-align: center;
+    }
+}
+
 /*======================= MAIN ==========================*/
 
 
@@ -363,32 +378,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .container_main{
     z-index: 1;
-    width: 1300px;
+    max-width: 1300px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
+    margin: 0 auto;
 }
 
 .container_main img{
     border-radius: 20px;
+    max-width: 100%;
+    height: auto;
 }
-
-.conocenos{
+.conocenos, .Cuidados {
     width: 100%;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px; 
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
 }
-.Cuidados{
-    width: 100%;
-    display: flex;
 
-}
 .info{
     display: grid;
     place-items: center;
@@ -419,10 +438,34 @@
     background-color: #d1ba92;
 }
 
-/*======================= ESTILOS ==========================*/
+@media (max-width: 768px) {
+    .container_main {
+        padding: 20px; 
+    }
+
+    .conocenos, .Cuidados {
+        width: 100%; 
+        flex-direction: column; 
+    }
+
+    .info h1 {
+        font-size: 1.8rem; 
+    }
+
+    .info .boton {
+        width: 100%; 
+        font-size: 16px;
+    }
+    .Cuidados .info {
+        order: 2; 
+    }
+    .Cuidados .img {
+        order: 1; 
+    }
+}
+
 
 /*======================= ESTILOS ==========================*/
-
 .estilos {
     width: 100%;
     padding: 40px;
@@ -445,60 +488,51 @@
     text-align: center;
 }
 
-
 .container-styles {
     width: 100%;
     max-width: 1400px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     margin: auto;
 }
 
-
+/* Estilo para los elementos */
 .style-item {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    height: 300px; /* Ajusta la altura según tus necesidades */
+    height: 300px;
     display: block;
     border-radius: 20px;
 }
 
-.style-item div {
-    width: 100%;
-    height: 100%;
-}
-
 /* Imágenes de fondo */
 .neo-tradicional {
-    background: url(/Tatto/img/Style4.png);
+    background: url(/Tatto/img/Style4.png) no-repeat center center;
     background-size: cover;
-    background-position: center;
-    grid-column: 1 / 2; /* Primera columna */
-    border-radius: 20px;
+    grid-column: 1 / 3;
+    grid-row: 1; 
 }
 
 .blackwork {
-    background: url(/Tatto/img/Style2.png);
+    background: url(/Tatto/img/Style2.png) no-repeat center center;
     background-size: cover;
-    background-position: center;
-    grid-column: 2 / 4; /* Ocupa dos columnas */
-    border-radius: 20px;
+    grid-column: 3; 
+    grid-row: 1; 
 }
 
 .tradicional {
-    background: url(/Tatto/img/Style1.png);
+    background: url(/Tatto/img/Style1.png) no-repeat center center;
     background-size: cover;
-    background-position: center;
-    grid-column: 1 / 3; /* Ocupa dos columnas */
+    grid-column: 1; 
+    grid-row: 2; 
 }
 
 .geometrico {
-    background: url(/Tatto/img/Style3.png);
+    background: url(/Tatto/img/Style3.png) no-repeat center center;
     background-size: cover;
-    background-position: center;
-    grid-column: 3 / 4; /* Tercera columna */
+    grid-column: 2 / 4; 
+    grid-row: 2; 
 }
 
 /* Overlay para el texto */
@@ -525,38 +559,88 @@
 }
 
 /* ==================== Media Queries ==================== */
-
-
 @media (max-width: 1024px) {
     .container-styles {
-        grid-template-columns: repeat(1fr); 
+        grid-template-columns:1fr; 
     }
 
     .titulo h1 {
-        font-size: 40px;
+        font-size: 40px; 
     }
 
     .style-item {
-        height: 200px;
+        height: 250px; 
+        width: 100%;
+    }
+
+    .neo-tradicional {
+        background: url(/Tatto/img/Style4.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 1; 
+    }
+    
+    .blackwork {
+        background: url(/Tatto/img/Style2.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 2; 
+    }
+    
+    .tradicional {
+        background: url(/Tatto/img/Style1.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 3; 
+    }
+    
+    .geometrico {
+        background: url(/Tatto/img/Style3.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 4; 
     }
 }
-
 
 @media (max-width: 768px) {
     .container-styles {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; 
     }
 
     .titulo h1 {
-        font-size: 30px;
+        font-size: 30px; 
     }
-
-    .style-item {
-        aspect-ratio: 1 / 1;
-        width: 100%;
-        flex-direction: column;
+    .neo-tradicional {
+        background: url(/Tatto/img/Style4.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 1; 
+    }
+    
+    .blackwork {
+        background: url(/Tatto/img/Style2.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 2; 
+    }
+    
+    .tradicional {
+        background: url(/Tatto/img/Style1.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 3; 
+    }
+    
+    .geometrico {
+        background: url(/Tatto/img/Style3.png) no-repeat center center;
+        background-size: cover;
+        grid-column: 1; 
+        grid-row: 4; 
     }
 }
+
+
+
 
 /* ==================== CITAS==================== */
 
@@ -609,6 +693,11 @@
     background-color: #d1ba92;
 }
 
+@media (max-width: 668px){
+    .citas-hero h1{
+        text-align: center;
+    }
+}
 
 /* ==================== FOOTER ==================== */
 

@@ -443,6 +443,30 @@ input{
     background-repeat: no-repeat;
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Ocupa todo el ancho */
+        height: 300px; /* Ajusta la altura según lo necesites */
+        margin: 10px 0; /* Espaciado vertical entre tarjetas */
+        transition: none; /* Desactiva la transición de tamaño en móviles */
+    }
+
+    .envoltura {
+        height: auto; /* Permite que la envoltura se ajuste al contenido */
+    }
+
+    .contenedor {
+        flex-direction: column; /* Cambia la dirección a columna */
+        align-items: stretch; /* Asegura que las tarjetas ocupen el ancho completo */
+    }
+    .card:hover {
+        width: 100%; /* Evita que se agrande en móviles */
+    }
+    .contenedor{
+        padding: 0px 20px;
+    }
+}
+
 /* HOVER */
 
 /*
