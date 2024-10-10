@@ -50,14 +50,13 @@
     
     /*=============== HEADER ===============*/
     .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: #D8D4CA;
-    box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-    z-index: var(--z-fixed);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #D8D4CA;
+        height: 80px; 
+        box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
+        z-index: 2;
     }
     
     /*=============== NAV ===============*/
@@ -72,10 +71,9 @@
     }
     
     .nav__info {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     
     .nav__logo {
@@ -114,7 +112,7 @@
     
     /* NAVEGACION PARA DISPOSITIVOS MOBILES */
     
-    @media screen and (max-width: 1118px) {
+    @media (max-width: 1118px) {
     .nav__menu {
         position: absolute;
         left: 0;
@@ -381,6 +379,16 @@
     font-size: 3rem;
     font-weight: bold;
 }
+
+@media (max-width:665px ){
+    .contenido-hero .img img{
+        height: 300px;
+        width: 300px;
+    }
+
+}
+   
+
 
 /*======================== CARDS =====================*/
 

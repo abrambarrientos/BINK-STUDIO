@@ -13,6 +13,76 @@ const showMenu = (toggleId, navId) =>{ // Declaramos una constante y le mandamos
 
     showMenu('nav-toggle','nav-menu')
 
+   const btnLeft = document.querySelector(".btn-left"),
+      btnRight = document.querySelector(".btn-right"),
+      slider = document.querySelector("#slider"),
+      sliderSection = document.querySelectorAll(".slider-section");
+
+btnLeft.addEventListener("click", e => moveToLeft());
+btnRight.addEventListener("click", e => moveToRight());
+
+// Variables iniciales
+let operacion = 0,
+    counter = 0,
+    imagesToShow = getImagesToShow(), // Obtener imágenes a mostrar según el tamaño de la pantalla
+    totalImages = sliderSection.length,
+    widthImg = 100 / totalImages;
+
+// Función para obtener el número de imágenes a mostrar según el tamaño de la pantalla
+function getImagesToShow() {
+    if (window.innerWidth < 768) { // Cambia este valor según tu diseño
+        return 1; // Móvil
+    } else {
+        return 3; // Pantallas más grandes
+    }
+}
+
+// Función para ajustar el contador y el ancho de las imágenes
+function adjustCarousel() {
+    imagesToShow = getImagesToShow(); // Actualiza el número de imágenes a mostrar
+    totalImages = sliderSection.length; // Vuelve a establecer el total de imágenes
+    widthImg = 100 / totalImages; // Actualiza el ancho de las imágenes
+}
+
+// Mueve a la derecha
+function moveToRight() {
+    // Solo incrementa si el contador está dentro de los límites
+    if (counter < totalImages - imagesToShow) {
+        counter++;
+        operacion = counter * widthImg;
+        slider.style.transform = `translate(-${operacion}%)`;
+        slider.style.transition = "all ease .6s";
+    }
+}
+
+// Mueve a la izquierda
+function moveToLeft() {
+    // Solo decrementa si el contador está mayor que 0
+    if (counter > 0) { 
+        counter--;
+        operacion = counter * widthImg;
+        slider.style.transform = `translate(-${operacion}%)`;
+        slider.style.transition = "all ease .6s";
+    }
+}
+
+// Escucha los cambios en el tamaño de la ventana
+window.addEventListener('resize', adjustCarousel);
+
+// Llama a la función para establecer los valores iniciales
+adjustCarousel();
+
+
+
+
+
+
+
+
+
+
+
+    /*
 const initSlider = () => {
     const imageList = document.querySelector(".slider-envuelto .lista-imagenes");
     const slideButtons = document.querySelectorAll(".slider-envuelto .slide-button");
@@ -33,6 +103,6 @@ const initSlider = () => {
     }
 
 
-}
+}*/
 
 window.addEventListener("load",initSlider);

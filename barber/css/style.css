@@ -34,6 +34,9 @@
     padding-top: var(--header-height);
  
     }
+
+
+    
     
     /*=============== CLASES REUTILIZABLES ===============*/
     .container {
@@ -50,14 +53,13 @@
     
     /*=============== HEADER ===============*/
     .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: #000000;
-    box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-    z-index: var(--z-fixed);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: black;
+        height: 80px; 
+        box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
+        z-index: 1;
     }
     
     /*=============== NAV ===============*/
@@ -72,10 +74,14 @@
     }
     
     .nav__info {
-    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    }
+
+    .nav__info img{
+        width: 100px;
+        height: 100px;
     }
     
     .nav__logo {
@@ -405,7 +411,7 @@
 }
 
 /*======================= CARRUSEL ==========================*/
-
+/*
 .contenedor-slider{
     display: flex;
     justify-content: center;
@@ -508,7 +514,90 @@
     right: 0;
     top: -10px;
     bottom: -10px;
-}   
+}   */
+
+.contenedor-carrusel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Limita el tamaño para mostrar 3 imágenes */
+    height: 600px;
+    background-color: #000000;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    overflow: hidden;
+  
+}
+
+.carruseles {
+    width: calc(100% * 5 / 3); /* Ajusta el tamaño del contenedor */
+    height: 100%;
+    display: flex;
+    gap: 10px;
+
+}
+
+.slider-section {
+    width: calc(100% / 5); /* Cada imagen ocupa un 20% del ancho total */
+    height: 100%;
+}
+
+.slider-section img {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease; /* Suaviza la transformación al hacer hover */
+}
+
+.slider-section img:hover{
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al hacer hover */
+    background: red;
+}
+
+.btn-left,
+.btn-right {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #ffffff81;
+    transform: translate(0,-50%);
+    transition: .5s ease;
+    user-select: none;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+    background-color: #333333d4;
+    color: #fff;
+}
+
+.btn-left {
+    left: 10px;
+}
+
+.btn-right {
+    right: 10px;
+}
+
+
+
+@media (max-width: 445px) {
+    .carruseles {
+        width: calc(100% * 5); /* Ajusta el tamaño del contenedor para mantener 5 imágenes */
+    }
+    .slider-section {
+        width: 100%; /* Cada imagen ocupará el 100% del ancho del contenedor */
+    }
+}
 
 
 
@@ -524,7 +613,6 @@
 }
 
 .container_main{
-    z-index: 1;
     width: 1300px;
     display: flex;
     justify-content: center;
