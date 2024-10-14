@@ -59,7 +59,7 @@
         background-color: black;
         height: 80px; 
         box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-        z-index: 1;
+        z-index: 2;
     }
     
     /*=============== NAV ===============*/
@@ -588,8 +588,6 @@
     right: 10px;
 }
 
-
-
 @media (max-width: 445px) {
     .carruseles {
         width: calc(100% * 5); /* Ajusta el tamaño del contenedor para mantener 5 imágenes */
@@ -613,16 +611,21 @@
 }
 
 .container_main{
-    width: 1300px;
+    z-index: 1;
+    max-width: 1300px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 20px;
+    margin: 0 auto;
 }
 
 .container_main img{
     border-radius: 20px;
+    max-width: 100%;
+    height: auto;
 }
 
 .conocenos{
@@ -663,6 +666,7 @@
 .info p{
     color: #7f7f7f;
     font-size: 2rem;
+    padding: 0 20px;
 }
 
 .info .boton:hover{
@@ -670,10 +674,6 @@
 }
 
 @media (max-width: 1024px) {
-    .container_main {
-        padding: 20px; 
-    }
-
     .conocenos, .Cuidados {
         width: 100%; 
         flex-direction: column; 
@@ -709,12 +709,10 @@
     .conocenos, .Cuidados {
         width: 100%; 
         flex-direction: column; 
-        margin-top: 100px;
     }
 
     .info h1 {
         font-size: 1.8rem; 
-        margin-top: 30px;
     }
     .info p{
         font-size: 1.5rem;
@@ -723,16 +721,26 @@
     }
 
     .info .boton {
-        width: 150px; 
+        width: 100%; 
         font-size: 16px;
     }
     .Cuidados .info {
         order: 2; 
     }
-    .conocenos, .Cuidados .img {
+    .Cuidados .img {
         order: 1; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }
+
+/*========================== FOOTER =========================*/
+
+.footer{
+    background: rosybrown;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
