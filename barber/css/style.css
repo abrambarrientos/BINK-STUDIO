@@ -524,7 +524,7 @@
 .container-carousel {
     position: relative;
     width: 100%;
-    max-width: 900px; /* Limita el tamaño para mostrar 3 imágenes */
+    max-width: 1200px; /* Limita el tamaño para mostrar 3 imágenes */
     height: 600px;
     background-color: #000000;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
