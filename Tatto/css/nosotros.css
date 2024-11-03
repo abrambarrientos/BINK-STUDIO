@@ -1,0 +1,414 @@
+:root {
+    --header-height: 3.5rem;
+    
+    /*========== COLORES ==========*/
+    --black-color: hsl(220, 24%, 12%);
+    --black-color-light: hsl(220, 24%, 15%);
+    --black-color-lighten: hsl(220, 20%, 18%);
+    --color-nav: #ffffff;
+    /*========== FUENTES Y TIPOGRAFIA ==========*/
+    
+    --body-font: "Montserrat", sans-serif;
+    --normal-font-size: .938rem;
+    
+    /*========== TAMAÑOS DE FUENTES ==========*/
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    
+    /*========== Z-INDEX ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    }
+    
+    
+    * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    }
+    
+    body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: black ;
+    padding-top: var(--header-height);
+    }
+    
+    /*=============== CLASES REUTILIZABLES ===============*/
+    .container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+    }
+    ul {
+        list-style: none;
+    }
+        
+    a {
+        text-decoration: none;
+    }
+    
+    /*=============== HEADER ===============*/
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: black;
+        height: 80px; 
+        box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
+        z-index: 2;
+    }
+    
+    /*=============== NAV ===============*/
+    .nav {
+    height: var(--header-height);
+    }
+    
+    .nav__logo, 
+    .nav__burger, 
+    .nav__close {
+    color: #ffffff;
+    }
+    
+    .nav__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    .nav__logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: .25rem;
+    font-weight: var(--font-semi-bold);
+    }
+    
+    .nav__logo i {
+    font-weight: initial;
+    font-size: 1.25rem;
+    }
+    
+    .nav_alterna {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    }
+    
+    .nav__burger, 
+    .nav__close {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+    }
+    
+    .nav__close {
+    opacity: 0;
+    }
+    
+    /* NAVEGACION PARA DISPOSITIVOS MOBILES */
+    
+    @media screen and (max-width: 1118px) {
+    .nav__menu {
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+    .nav__menu::-webkit-scrollbar {
+        width: 0;
+    }
+    .nav__list {
+        background-color: #000000;
+        padding-top: 1rem;
+    }
+    }
+    
+    .nav__link {
+        color: #ffff;
+        font-weight: var(--font-semi-bold);
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color .3s;
+    }
+    
+    .nav__link:hover {
+        color: #888888;
+    }
+    
+    /* MOSTRAR MENU ( PANTALLAS PEQUEÑAS ) */
+    .show-menu {
+        opacity: 1;
+        top: 3.5rem;
+        pointer-events: initial;
+    }
+    
+    /* ICONO HAMBURGUESA */
+    .show-icon .nav__burger {
+        opacity: 0;
+        transform: rotate(90deg);
+        }
+        .show-icon .nav__close {
+        opacity: 1;
+        transform: rotate(90deg);
+    }
+    
+    /*=============== MENU DESPLEGABLE ===============*/
+    
+    .menu_desplegable__item {
+    cursor: pointer;
+    }
+    
+    .menu_desplegable__arrow {
+    font-size: 1.25rem;
+    font-weight: initial;
+    transition: transform .4s;
+    }
+    
+    .menu_desplegable__link{
+    padding: 1.25rem 1.25rem 1.25rem 2.5rem;
+    color: #797979;
+    background-color: #111111;
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    font-weight: var(--font-semi-bold);
+    transition: background-color .3s;
+    border-radius: 15px 15px 15px 15px;
+    }
+    
+    .menu_desplegable__link i, 
+    .menu_desplegable__sublink i {
+    font-size: 1.25rem;
+    font-weight: initial;
+    }
+    
+    .menu_desplegable__link:hover{
+    background-color: #dedddd;
+    }
+    
+    .menu_desplegable__menu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease-out;
+    border: 1px solid #434343;
+    border-radius: 15px;
+    background: #111111;
+    
+    }
+    
+    /* MUESTRA EL MENU DESPLEGABLE DE HOME */
+    .menu_desplegable__item:hover .menu_desplegable__menu{
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+    }
+    
+    /* ROTA LA FLECHA*/
+    
+    .menu_desplegable__item:hover .menu_desplegable__arrow {
+    transform: rotate(180deg);
+    }
+    
+    
+    /*=============== MEDIA QUERIES ===============*/
+    
+    /* PARA PANTALLAS PEQUEÑAS */
+    @media screen and (max-width: 340px) {
+    .container {
+        margin-inline: 1rem;
+    }
+    
+    .nav__link {
+        padding-inline: 1rem;
+    }
+    }
+    
+    /* PARA PANTALLAS GRANDES ( PC )*/
+    @media screen and (min-width: 1118px) {
+    .container {
+        margin-inline: auto;
+    }
+    
+    .nav {
+        height: calc(var(--header-height) + 2rem);
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav_alterna {
+        display: none;
+    }
+    .nav__list {
+        height: 100%;
+        display: flex;
+        column-gap: 3rem;
+    }
+    .nav__link {
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+        column-gap: .25rem;
+    }
+    .nav__link:hover {
+        background-color: transparent;
+    }
+    
+    .menu_desplegable__item, 
+    .menu_desplegable__subitem {
+        position: relative;
+    }
+    
+    .menu_desplegable__menu{
+        max-height: initial;
+        overflow: initial;
+        position: absolute;
+        left: 0;
+        top: 6rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s, top .3s;
+    }
+    
+    .menu_desplegable__link, 
+    .menu_desplegable__sublink {
+        padding-inline: 1rem 3.5rem;
+    }
+    
+    .menu_desplegable__subitem .menu_desplegable__link {
+        padding-inline: 1rem;
+    }
+    
+    .menu_desplegable__submenu {
+        position: absolute;
+        left: 100%;
+        top: .5rem;
+    }
+    
+    /* MOSTRAR MENU DESPLEGABLE*/
+    .menu_desplegable__item:hover .menu_desplegable__menu {
+        opacity: 1;
+        top: 5.5rem;
+        pointer-events: initial;
+        transition: top .3s;
+    }
+    
+    }
+    .nosotros{
+        width: 100%;
+        height: auto;
+    }
+
+    .color_header{
+        width: 100%;
+        height: 500px;
+        margin-top: -60px;
+        background: #060606;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+
+    .color_header h1{
+    font-size: 5rem;
+    color: white;
+}
+
+.video{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#video{
+    width: 700px;
+    height: 700px;
+    pointer-events: none;
+    user-select: none;
+    margin-top: -300px;
+
+}
+
+.info_contenedor{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.info{
+    width: 50%;
+    height: auto;
+    padding: 30px;
+}
+
+.info p{
+    font-size: 1.5rem;
+    color: white;
+}
+
+@media (max-width: 1024px){
+    .info{
+        width: 80%;
+    }
+}
+
+@media (max-width: 668px){
+    .info p{
+        font-size: 20px;
+    }
+}
+   
+
+
+/*============================= FOOTER ==========================*/
+
+.footer{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #333536;
+    margin-top: 50px;
+    padding: 0px 30px;
+}
+
+
+.nombreEmpresa{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.RedesSociales{
+    display: flex;
+    gap: 20px;
+}
+
+.RedesSociales a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.RedesSociales i{
+    border: 1px solid #333536;
+    border-radius: 50%;
+    padding: 7px;
+    transition: .3s all ease;
+}
+
+.RedesSociales i:hover{
+    transform: translateY(-5px);
+}

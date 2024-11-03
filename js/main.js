@@ -12,3 +12,4 @@ const showMenu = (toggleId, navId) =>{ // Declaramos una constante y le mandamos
 }
 
     showMenu('nav-toggle','nav-menu')
+

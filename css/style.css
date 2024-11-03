@@ -55,7 +55,7 @@
         /*background-color: var(--color-nav);*/
         height: 80px; 
         box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-        z-index: 1;
+        z-index: 100000;
         backdrop-filter: blur(30px);
     }
    
@@ -322,7 +322,7 @@
     background-position: center;
 }
 
-/*
+
 .img{
     height: var(--header-height);
     width: 100%;
@@ -331,16 +331,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}*/
+}
 
 /*======================= SECCION DE LOS NEGOCIOS ==========================*/
 
-.envoltura {
+.envoltura-negocios {
     width: 100%;
-    height: 52rem;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 50px;
 }
 
 .contenedor{
@@ -350,6 +351,7 @@
     flex-wrap: nowrap;
     justify-content: center;
 }
+
 
 
 .card{
@@ -406,6 +408,19 @@
 .card:hover::before {
     opacity: 1;
     transform: translateY(0);
+    position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, #000000 0%, #ffffff00 100%);
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
 }
 
 
@@ -424,6 +439,96 @@
     opacity: 0;
     transform: translateY(30px);
     transition: all .3s ease;
+    z-index: 2;
+}
+
+
+.card1{
+    position: relative;
+    width: 20%;
+    height: 600px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28, -0.03,0.99 );
+    background-color: #888888 ;
+    transition: width .8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card1 > .row{
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card1> .row > .titulo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 40px;
+    overflow: hidden;
+    height: 80px;
+    width: 500px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .3s ease, transform .3s ease;
+    transition: all .3s ease;
+}
+
+.card1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 33%; 
+    opacity: 0; 
+    transition: opacity .8s cubic-bezier(0.25, 1, 0.5, 1), transform .8s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;  
+    transform: translateY(100%);
+}
+
+
+.card1:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+    position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, #9BA697 0%, #ffffff00 100%);
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+}
+
+
+.card1:hover {
+    width: 800px;
+    transition: width .8s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.card1:hover .titulo {
+    opacity: 1;
+    transform: translateY(0); 
+}
+
+
+.card1 .titulo {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all .3s ease;
+    z-index: 2;
 }
 
 input{
@@ -441,14 +546,14 @@ input{
     background-repeat: no-repeat;
 }
 
-.card[for="c3"]{
+.card1[for="c3"]{
     background: url(../img/pigmentacion.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
-    .card {
+    .card{
         width: 100%;
         height: 300px; 
         margin: 10px 0;
@@ -469,11 +574,32 @@ input{
     .contenedor{
         padding: 0px 20px;
     }
-s
+
     .card, .row, .titulo h1{
         font-size: 20px;
+        z-index: 2;
+    }
+
+    .card1{
+        width: 100%;
+        height: 300px; 
+        margin: 10px 0;
+        transition: none;
+    }
+
+    .card1:hover {
+        width: 100%; 
+    }
+    .contenedor{
+        padding: 0px 20px;
+    }
+
+    .card1, .row, .titulo h1{
+        font-size: 20px;
+        z-index: 2;
     }
 }
+
 
 .footer{
     width: 100%;

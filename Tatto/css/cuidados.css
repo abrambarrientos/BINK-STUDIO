@@ -30,7 +30,7 @@
     body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    background-color: black;
+    background: #000000;
     padding-top: var(--header-height);
     }
     
@@ -304,11 +304,13 @@
     }
 
 .hero{
-    height: 100vh;
     width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+
 }
 
 .hero h1{   
@@ -316,6 +318,7 @@
     color: white;
     font-weight: bold;
     font-family: "Inknut Antiqua", serif;
+    text-align: center;
 }
 
 .hero p{
@@ -362,9 +365,7 @@
 @media (max-width: 480px) {
     .hero h1{
         font-size: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
     }
     .hero img {
         width: 100%; /* Ocupa todo el ancho disponible */
@@ -376,8 +377,9 @@
 }
 
 
-
     /*======================================================== CUIDADOS ========================*/
+
+    /*
     .cuidados-generales {
         width: 100%;
         height: auto;
@@ -405,9 +407,9 @@
 
     .cabecera .linea-blanca{
         border: none;
-        border-top: 2px solid white; /* Línea blanca */
-        width: 80%; /* Ancho del 80% del contenedor */
-        margin: 20px auto; /* Centramos con margen automático */
+        border-top: 2px solid white; 
+        width: 80%; 
+        margin: 20px auto; 
     }
     
     .Cuidados-antes {
@@ -418,6 +420,7 @@
         justify-content: center;
         align-items: stretch;
     }
+    
     
     .Cuidados-antes .card {
         display: flex;
@@ -461,5 +464,228 @@
         color: #7c786d;
         font-size: 14px;
         line-height: 1.5;
+    }*/
+
+
+    .cuidados {
+        width: 100%;
+        height: auto;
+        gap: 20px;
+        padding: 100px;
+        margin-top: 100px;
     }
     
+    .info-cuidados {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto; /* Cambia a auto para que el tamaño se ajuste */
+        margin: auto;
+    }
+    
+    .info {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+    }
+    
+    .info p {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .imagen img {
+        width: 100%;
+        height: auto; 
+        margin-top: 0;
+    }
+    
+    .imagen {
+        grid-column: 5 / 6;
+        grid-row: 1 / 5;
+    }
+    
+    /*============================ LINEA DEL TIEMPO =================*/
+    
+    .timeline-grid {
+        margin-top: 100px;
+        grid-column: 1 / 4;
+        grid-row: 2 / 5;
+    }
+    
+    /* Estilos compartidos entre ambas líneas */
+    .timeline {
+        position: relative;
+        margin: auto;
+    }
+    
+    .event {
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+    
+    .circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: black;
+        border: 2px solid #f6f6f6;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+        position: absolute;
+    }
+    
+    .content {
+        padding: 15px;
+        border-radius: 6px;
+        background-color: #3333333a;
+        color: white;
+    }
+    
+    
+    /* Línea vertical */
+    .timeline::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: #f6f6f6;
+        top: 13px;
+        height: 95%;
+    }
+    
+    /* Estilos específicos para la línea izquierda */
+    .timeline-left::before {
+        left: 20px;
+    }
+    
+    .timeline-left .circle {
+        left: 2px;
+    }
+    
+    .timeline-left .content {
+        margin-left: 50px;
+        text-align: left;
+    }
+    
+    /* Estilos específicos para la línea derecha */
+    .timeline-right::before {
+        right: 20px;
+    }
+    
+    .timeline-right .circle {
+        right: 0px;
+    }
+    
+    .timeline-right .content {
+        margin-right: 50px;
+        text-align: right;
+    }
+    
+    /* Responsivo */
+    @media (max-width: 1200px) {
+        .cuidados {
+            padding: 20px; /* Menos padding en dispositivos pequeños */
+        }
+    
+        .info-cuidados {
+            grid-template-columns: 1fr; /* Una columna en dispositivos pequeños */
+            width: 100%;
+        }
+    
+        .timeline-grid {
+            grid-template-columns: 1fr; /* Una columna para la línea de tiempo */
+        }
+    
+        .timeline-left,
+        .timeline-right {
+            width: 100%;
+        }
+    
+        .timeline-left::before,
+        .timeline-right::before {
+            left: 30px;
+        }
+    
+        .info {
+            grid-column: 1; /* Usa toda la columna */
+            grid-row: 1; /* En la fila correcta */
+            display: flex;
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+        }
+        .info p{
+            font-weight: normal;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .timeline-grid {
+            grid-row: 2 / 3; /* Asegúrate de que se ajuste correctamente */
+        }
+    
+        .imagen {
+            grid-row: 3 / 4; /* En la fila correcta */
+            grid-column: 1; /* Usa toda la columna en móviles */
+            display: flex;
+            justify-content: center; /* Centra la imagen */
+            align-items: center; /* Centra verticalmente */
+        }
+    }
+    
+/*============================= FOOTER ==========================*/
+
+.footer{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #333536;
+    margin-top: 50px;
+    padding: 0px 30px;
+}
+
+
+.nombreEmpresa{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.RedesSociales{
+    display: flex;
+    gap: 20px;
+}
+
+.RedesSociales a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.RedesSociales i{
+    border: 1px solid #333536;
+    border-radius: 50%;
+    padding: 7px;
+    transition: .3s all ease;
+}
+
+.RedesSociales i:hover{
+    transform: translateY(-5px);
+}
+
+@media (max-width: 665px){
+    .info{
+        display: grid;
+        padding: 0 20px;
+    }
+}
+   
