@@ -639,47 +639,104 @@
         }
     }
     
-/*============================= FOOTER ==========================*/
+/* ==================== FOOTER ==================== */
+
 
 .footer{
     width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #333536;
-    margin-top: 50px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 400px 500px 300px;
+    justify-content: center;
+    background-color: black;
+    gap: 30px;
+    padding: 50px;
+    margin-top: 100px;
+    border-top: 1px solid #434343;
+}
+.footer h1{
+    font-family: "Rye", serif;
+    color: white;
+    font-size: 25px;
+}
+.footer p{
+    color: white;
+}
+
+.descripcion p{
+    margin-top: 30px;
+}
+
+.datos {
+    flex-direction: column;
+    color: white;
     padding: 0px 30px;
 }
 
 
-.nombreEmpresa{
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+
+.datos h1{
+   text-align: center;
 }
 
-.RedesSociales{
-    display: flex;
-    gap: 20px;
+.direccion{
+    margin-top: 30px;
 }
 
-.RedesSociales a{
+.direccion a{
     text-decoration: none;
     color: white;
-    font-size: 20px;
     font-weight: bold;
-}
-
-.RedesSociales i{
-    border: 1px solid #333536;
-    border-radius: 50%;
-    padding: 7px;
+    border-bottom: 1px solid #C0A372;
+    padding: 10px;
     transition: .3s all ease;
 }
 
-.RedesSociales i:hover{
-    transform: translateY(-5px);
+
+.direccion a:hover{
+    background: #C0A372;
+
+}
+
+.telefonos{
+    margin-top: 10px;
+}
+
+
+
+.Redes-sociales i{
+    color: white;
+    margin-top: 30px;
+    font-size: 40px;
+    transition: .3s ease;
+    align-items: end;
+}
+
+.Redes-sociales i:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+@media (max-width: 778px){
+    
+    .footer{
+        grid-template-columns: 1fr;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer h1{
+        text-align: center;
+        }
+
+    .Redes-sociales{
+        width: 100%;
+        place-items: center;
+    }
+
 }
 
 @media (max-width: 665px){
