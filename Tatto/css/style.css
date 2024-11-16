@@ -1,3 +1,4 @@
+
 :root {
     --header-height: 3.5rem;
     
@@ -327,14 +328,18 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+
 }
 
 
-.contenido-hero h1{
+.contenido-hero h1:first-child{
     color: #ffffff;
     font-size: 3rem;
     font-family: "Rye", serif;
+
 }    
+
+
 .contenido-hero .boton{
     display: flex;
     justify-content: center;
@@ -547,7 +552,11 @@
     transform: translateY(0); /* Vuelve a la posición original */   
     animation: myAnim .5s ease 0s 1 normal forwards;
     transition: .3s all ease;
+    
 }
+
+
+.bounce-top{animation:bounce-top .9s linear both} @keyframes bounce-top{0%{transform:translateY(-45px);animation-timing-function:ease-in;opacity:1}24%{opacity:1}40%{transform:translateY(-24px);animation-timing-function:ease-in}65%{transform:translateY(-12px);animation-timing-function:ease-in}82%{transform:translateY(-6px);animation-timing-function:ease-in}93%{transform:translateY(-4px);animation-timing-function:ease-in}25%,55%,75%,87%{transform:translateY(0);animation-timing-function:ease-out}100%{transform:translateY(0);animation-timing-function:ease-out;opacity:1}}
 
 
 @keyframes myAnim {
@@ -585,10 +594,22 @@
 @media (max-width: 1024px) {
     .container-styles {
         grid-template-columns:1fr; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .titulo h1 {
         font-size: 40px; 
+    }
+
+    .titulo {
+        padding: 0px;
+    }
+
+    .container-styles{
+        margin-top: 100px;
     }
 
     .style-item {
@@ -781,6 +802,14 @@
 
 
 
+.descripcion{
+    width: 100%;
+    padding: 0px 30px;
+}
+
+.descripcion p{
+    text-align: justify;
+}
 .datos h1{
    text-align: center;
 }
@@ -793,16 +822,11 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
+    padding: 5px;
     border-bottom: 1px solid #C0A372;
-    padding: 10px;
     transition: .3s all ease;
 }
 
-
-.direccion a:hover{
-    background: #C0A372;
-
-}
 
 .telefonos{
     margin-top: 10px;
@@ -823,6 +847,9 @@
     cursor: pointer;
 }
 
+
+   
+
 @media (max-width: 778px){
     
     .footer{
@@ -832,11 +859,13 @@
         align-items: center;
         display: flex;
         flex-direction: column;
+        padding: 20px 20px;
     }
 
     .footer h1{
         text-align: center;
-        }
+    }
+
 
     .Redes-sociales{
         width: 100%;

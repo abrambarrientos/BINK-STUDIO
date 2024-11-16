@@ -325,6 +325,7 @@
         font-size: 50px;
         color: white;
         text-align: center;
+        /*text-shadow: -10px 20px 20px #ffffff;*/
         font-family: "Rye", serif;
     }
 
@@ -385,7 +386,11 @@
         }
         .cabecera{
             width: 100%;
-            padding: 0px 30px;
+            padding: 0px 20px;
+        }
+        .cabecera h1{
+            padding: 20px;
+            font-size: 40px;
         }
         .boton{
             width: 200px;
@@ -405,8 +410,6 @@
             opacity: 1; scale: 100%;
         }
     }
-
-
 /* ==================== FOOTER ==================== */
 
 
@@ -419,9 +422,9 @@
     background-color: black;
     gap: 30px;
     padding: 50px;
-    margin-top: 100px;
     border-top: 1px solid #434343;
 }
+
 .footer h1{
     font-family: "Rye", serif;
     color: white;
@@ -443,6 +446,14 @@
 
 
 
+.descripcion{
+    width: 100%;
+    padding: 0px 30px;
+}
+
+.descripcion p{
+    text-align: justify;
+}
 .datos h1{
    text-align: center;
 }
@@ -455,16 +466,11 @@
     text-decoration: none;
     color: white;
     font-weight: bold;
+    padding: 5px;
     border-bottom: 1px solid #C0A372;
-    padding: 10px;
     transition: .3s all ease;
 }
 
-
-.direccion a:hover{
-    background: #C0A372;
-
-}
 
 .telefonos{
     margin-top: 10px;
@@ -486,6 +492,8 @@
 }
 
 
+   
+
 @media (max-width: 778px){
     
     .footer{
@@ -495,11 +503,13 @@
         align-items: center;
         display: flex;
         flex-direction: column;
+        padding: 20px 20px;
     }
 
     .footer h1{
         text-align: center;
-        }
+    }
+
 
     .Redes-sociales{
         width: 100%;
@@ -507,3 +517,4 @@
     }
 
 }
+

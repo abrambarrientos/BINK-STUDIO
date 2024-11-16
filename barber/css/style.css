@@ -59,7 +59,7 @@
         background-color: black;
         height: 80px; 
         box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-        z-index: 2;
+        z-index: 100;
     }
     
     /*=============== NAV ===============*/
@@ -313,36 +313,48 @@
     }
 
     
+
 /*======================= IMAGEN EMPRESA ==========================*/
 
-.hero{
-    height: var(--header-height);
-    background-image: url(/barber/img/ImgHero.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 856px;
+.hero {
+    position: relative;
     width: 100%;
-    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .contenido-hero{
     position: absolute;
     background-color: rgba(0, 0, 0, .7);
     background-color: rgba(0 0 0 / 70% );
-    height: 856px;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    z-index: 10;
 }
 
 
 .contenido-hero h1{
     color: #b4912a;
     font-size: 4rem;
+    font-family: "Ewert", serif;
 }   
+
 .contenido-hero h2{
     color: #b4912a;
     font-size: 20px;
@@ -389,6 +401,118 @@
     color: #b18e29;
     font-size: 3rem;
     font-weight: bold;
+    font-family: "Ewert", serif;
+}
+
+@media (max-width: 665px){
+    .contenido-hero{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenido-hero h1{
+        text-align: center;
+    }
+
+    .contenido-hero .boton{
+        width: 150px;
+        font-size: 12px;
+    }
+}
+
+/* Hacer el diseño responsive */
+@media (max-width: 768px) {
+    .hero .info {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .hero img{
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/*
+.hero{
+    height: var(--header-height);
+    background-image: url(/barber/img/ImgHero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 856px;
+    width: 100%;
+    background-position: center;
+}
+
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0 0 0 / 70% );
+    height: 856px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.contenido-hero h1{
+    color: #b4912a;
+    font-size: 4rem;
+    font-family: "Ewert", serif;
+}   
+
+.contenido-hero h2{
+    color: #b4912a;
+    font-size: 20px;
+}   
+
+.contenido-hero .Botones{
+    display: flex;
+    gap: 20px;
+}
+
+.contenido-hero .boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffff;
+    height: 60px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: #b4912a;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .5s ease;
+}
+.contenido-hero .boton1{
+    background-color: transparent;
+    background: #b4912a;
+    backdrop-filter: blur(2px);
+}
+
+.contenido-hero .boton:hover{
+    background-color: #d1ba92;
+}
+
+
+.cabecera{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecera h1{
+    color: #b18e29;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: "Ewert", serif;
 }
 
 @media (max-width: 665px){
@@ -408,7 +532,7 @@
         font-size: 12px;
     }
 
-}
+}*/
 
 /*======================= CARRUSEL ==========================*/
 /*
@@ -533,7 +657,7 @@
 }
 
 .carruseles {
-    width: calc(100% * 5 / 3); /* Ajusta el tamaño del contenedor */
+    width: calc(100% * 5 / 3); 
     height: 100%;
     display: flex;
     gap: 10px;
@@ -541,7 +665,7 @@
 }
 
 .slider-section {
-    width: calc(100% / 5); /* Cada imagen ocupa un 20% del ancho total */
+    width: calc(100% / 5); 
     height: 100%;
 }
 
@@ -550,13 +674,14 @@
     height: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    transition: transform 0.3s ease; /* Suaviza la transformación al hacer hover */
+    transition: transform 0.3s ease;
 }
 
+/*
 .slider-section img:hover{
-    transform: scale(1.1); /* Aumenta el tamaño de la imagen al hacer hover */
+    transform: scale(1.1);
     background: red;
-}
+}*/
 
 .btn-left,
 .btn-right {
@@ -732,15 +857,111 @@
     }
 }
 
-/*========================== FOOTER =========================*/
+
+/* ==================== FOOTER ==================== */
+
 
 .footer{
-    background: rosybrown;
     width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 400px 500px 300px;
+    justify-content: center;
+    background-color: black;
+    gap: 30px;
+    padding: 50px;
+    border-top: 1px solid #434343;
 }
 
+.footer h1{
+    font-family: "Rye", serif;
+    color: white;
+    font-size: 25px;
+}
+.footer p{
+    color: white;
+}
+
+.descripcion p{
+    margin-top: 30px;
+}
+
+.datos {
+    flex-direction: column;
+    color: white;
+    padding: 0px 30px;
+}
+
+
+
+.descripcion{
+    width: 100%;
+    padding: 0px 30px;
+}
+
+.descripcion p{
+    text-align: justify;
+}
+.datos h1{
+   text-align: center;
+}
+
+.direccion{
+    margin-top: 30px;
+}
+
+.direccion a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-bottom: 1px solid #C0A372;
+    transition: .3s all ease;
+}
+
+
+.telefonos{
+    margin-top: 10px;
+}
+
+
+
+.Redes-sociales i{
+    color: white;
+    margin-top: 30px;
+    font-size: 40px;
+    transition: .3s ease;
+    align-items: end;
+}
+
+.Redes-sociales i:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
+   
+
+@media (max-width: 778px){
+    
+    .footer{
+        grid-template-columns: 1fr;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+    }
+
+    .footer h1{
+        text-align: center;
+    }
+
+
+    .Redes-sociales{
+        width: 100%;
+        place-items: center;
+    }
+
+}
