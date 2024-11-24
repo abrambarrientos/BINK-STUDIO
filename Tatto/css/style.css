@@ -1,4 +1,6 @@
-
+html{
+    scroll-behavior: smooth;
+}
 :root {
     --header-height: 3.5rem;
     
@@ -586,6 +588,7 @@
     align-items: end;
     opacity: 0;
     transform: translateY(0);
+    font-family: "Rye", serif;
 }
 
 

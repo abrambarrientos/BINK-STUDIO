@@ -61,13 +61,11 @@
 
                 <li><a href="/Tatto/cuidados.html" class="nav__link">Cuidados</a></li>
                 <li><a href="/Tatto/nosotros.html" class="nav__link">Conocenos</a></li>
-                <li><a href="#" class="nav__link">Estilo de tatuajes</a></li>
+                <li><a href="/Tatto/main.html" class="nav__link">Estilo de tatuajes</a></li>
             </ul>
             </div>
         </nav>
     </header>
-
-
     <main class="contenido">
         <div class="cabecera">
             <h1>BLACK WORK</h1>
@@ -75,6 +73,28 @@
                 tinta negra, sin tonos grises ni sombras. Se trata
                  de un estilo muy demandado en la actualidad y con una estética muy marcada. 
             </p>
+            <style>
+                .cabecera{
+                    height: 70vh;
+                    width: 70%;
+                    background: url(/Tatto/img/blackwork.jpg);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column ;
+                }
+                @media (max-width: 778px){
+                    .cabecera{
+                        width: 100%;
+                        padding: 0px 20px;
+                        background: url(/Tatto/img/blackwork.jpg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+    }
+            </style>
         </div>
         <div class="galeria-imagenes">
             <img src="/Tatto/img/Style3.png" alt="estilo1">

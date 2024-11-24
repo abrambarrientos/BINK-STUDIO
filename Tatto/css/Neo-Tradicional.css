@@ -314,19 +314,25 @@
         margin-top: 100px;
     }
     .cabecera{
+        height: 70vh;
+        width: 70%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column ;
-        height: 70vh;
-        width: 40%;
     }
     .cabecera h1{
         font-size: 50px;
         color: white;
         text-align: center;
-        /*text-shadow: -10px 20px 20px #ffffff;*/
+        text-shadow: -2px 5px 5px #ffffff;
         font-family: "Rye", serif;
+    }
+
+    .cabecera p{
+        font-size: 20px;
+        padding: 0px 20px;
+        text-align: center;
     }
 
     .cabecera p{
@@ -359,7 +365,7 @@
     }
 
     .boton{
-        margin-top: 50px;
+       margin: 50px 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -383,10 +389,14 @@
         .galeria-imagenes{
             grid-template-columns: 1fr;
             margin-top: 100px;
+            padding: 0px 30px;
         }
         .cabecera{
             width: 100%;
             padding: 0px 20px;
+            background: url(/Tatto/img/blackwork.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .cabecera h1{
             padding: 20px;
