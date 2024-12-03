@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
     --header-height: 3.5rem;
     
@@ -128,6 +132,7 @@
         width: 0;
     }
     .nav__list {
+        margin-top: 23px;
         background-color: #fbfbfb;
         padding-top: 1rem;
     }
@@ -378,6 +383,7 @@
     color: #ffffff;
     font-size: 3rem;
     font-weight: bold;
+    font-family: "Leckerli One", cursive;
 }
 
 @media (max-width:665px ){
@@ -399,49 +405,90 @@
     align-items: center;
 }
 
-.card{
+.card {
+    position: relative;
     width: 300px;
+    height: 350px;
     margin: 20px;
-    border-radius: 15px;
-    overflow: hidden;
-    background: #9BA697;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-    cursor: default;
 }
 
-.card img{
+.card .face {
+    position: absolute;
     width: 100%;
-    height: 210px;
-}
-
-.card .contenido{
-    padding: 15px;
-    text-align: center;
-}
-
-.card .contenido h1{
-    color: white;
-}
-
-.card .contenido a{
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px;
-    margin-top: 10px;
-    color: white;
-}
-.card .contenido .boton{
-    background: #333536;
+    height: 100%;
+    backface-visibility: hidden;
     border-radius: 10px;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-    transition: .5s all ease;
-    margin-top: 3rem;
+    overflow: hidden;
+    transition: .5s;
 }
 
-.card .contenido .boton:hover{
-    transform: translateY(-3px);
+.card .front {
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 1px 5px #000;
 }
 
+.card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 650px;
+    color: #fff;
+    background: linear-gradient(0deg, #9ba697 0%, #ffffff00 100%);;
+    text-align: center;
+    font-family: "Leckerli One", cursive;
+    font-weight: 200;
+}
+
+
+
+.card .back {
+    transform: perspective(600px) rotateY(180deg);
+    background: #9ba697;
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 1px 5px #000;
+}
+
+.card .back .link {
+    border-top: solid 1px #f3f3f3;
+    height: 50px;
+    line-height: 50px;
+}
+
+.card .back .link a {
+    color: #f3f3f3;
+}
+
+.card .back h3 {
+    font-size: 25px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-family: "Leckerli One", cursive;
+}
+
+.card .back p {
+    letter-spacing: 1px;
+} 
+
+.card:hover .front {
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: perspective(600px) rotateY(360deg);
+}
 @media (max-width: 665px){
     .container-micro{
         display: grid;
@@ -500,6 +547,7 @@
 
 .citas h1{
     color: black;
+    font-family: "Leckerli One", cursive;
 }
 
 .citas a{
@@ -560,60 +608,121 @@
     }
 }
 
+    
+/* ==================== FOOTER ==================== */
 
-
-
-
-
-/*============================= FOOTER ==========================*/
 
 .footer{
     width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #333536;
-    margin-top: 50px;
+    height: auto;
+    display: grid;
+    margin-top: 100px;
+    grid-template-columns: 400px 500px 300px;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+    border-top: 1px solid #434343;
+}
+
+.footer h1{
+    font-family: "Leckerli One", cursive;
+    color: white;
+    font-size: 25px;
+}
+.footer p{
+    color: white;
+}
+
+.descripcion p{
+    margin-top: 30px;
+}
+
+.datos {
+    flex-direction: column;
+    color: white;
     padding: 0px 30px;
 }
 
 
-.nombreEmpresa{
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
+
+.descripcion{
+    width: 100%;
+    padding: 0px 30px;
 }
 
-.RedesSociales{
-    display: flex;
-    gap: 20px;
+.descripcion p{
+    text-align: justify;
+}
+.datos h1{
+   text-align: center;
 }
 
-.RedesSociales a{
+.direccion{
+    margin-top: 30px;
+}
+
+.direccion a{
     text-decoration: none;
-    color: black;
-    font-size: 20px;
+    color: white;
     font-weight: bold;
-}
-
-.RedesSociales i{
-    border: 1px solid #333536;
-    border-radius: 50%;
-    padding: 7px;
+    padding: 5px;
     transition: .3s all ease;
 }
 
-.RedesSociales i:hover{
-    transform: translateY(-5px);
+
+.telefonos{
+    margin-top: 10px;
 }
 
-@media (max-width: 665px){
-    .info{
-        display: grid;
-        padding: 0 20px;
-    }
+
+
+.Redes-sociales i{
+    color: white;
+    margin-top: 30px;
+    font-size: 40px;
+    transition: .3s ease;
+    align-items: end;
 }
+
+.Redes-sociales i:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
    
+
+@media (max-width: 778px){
+    
+    .footer{
+        grid-template-columns: 1fr;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 20px;
+    }
+
+    .footer h1{
+        text-align: center;
+    }
+
+
+    .Redes-sociales{
+        width: 100%;
+        place-items: center;
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 

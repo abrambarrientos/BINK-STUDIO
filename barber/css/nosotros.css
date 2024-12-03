@@ -139,6 +139,7 @@ html{
         width: 0;
     }
     .nav__list {
+        margin-top: 23px;
         background-color: #000000;
         padding-top: 1rem;
     }

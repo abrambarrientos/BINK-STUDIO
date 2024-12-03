@@ -137,6 +137,7 @@
         width: 0;
     }
     .nav__list {
+        margin-top: 23px;
         background-color: #000000;
         padding-top: 1rem;
     }
@@ -321,6 +322,7 @@
         justify-content: center;
         align-items: center;
         padding: 0 100px;
+        flex-direction: column;
     }
 
     .estilos .imagenes-estilos {
@@ -373,6 +375,24 @@
         transform: scale(1.1);
         cursor: pointer;
         filter: grayscale(0);
+    }
+
+    .button{
+        width: 250px;
+        height: auto;
+        padding: 20px;
+        background: #C0A372;
+        color: white;
+        font-size: 20px;
+        border-radius: 5px;
+        margin-top: 40px;
+        transition: .3s all ease;
+        text-align: center;
+    }
+
+    .button:hover{
+        transform: scale(1.03);
+
     }
 
     @media (max-width: 668px) {

@@ -30,7 +30,7 @@ let operacion = 0,
 
 // Función para obtener el número de imágenes a mostrar según el tamaño de la pantalla
 function getImagesToShow() {
-    if (window.innerWidth < 768) { // Cambia este valor según tu diseño
+    if (window.innerWidth < 768) { 
         return 1; // Móvil
     } else {
         return 3; // Pantallas más grandes
@@ -66,43 +66,105 @@ function moveToLeft() {
     }
 }
 
-// Escucha los cambios en el tamaño de la ventana
-window.addEventListener('resize', adjustCarousel);
+/*========================== Módulos de cita ===============================*/
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modalCita');
+    const openModalBtn = document.querySelector('.boton[href="#"]');
+    const closeModalBtn = document.querySelector('.close');
+    const steps = document.querySelectorAll('.paso'); // Obtiene los pasos
+    const resumen = document.getElementById('resumenCita'); // Panel de resumen
+    let currentStep = 0; // Paso actual
 
-// Llama a la función para establecer los valores iniciales
-adjustCarousel();
+    // Variables para almacenar la selección del usuario
+    let servicio = '';
+    let fecha = '';
+    let hora = '';
 
+    // Función para actualizar el resumen
+    const updateResumen = () => {
+        document.getElementById('servicioSeleccionado').innerText = `Servicio: ${servicio || '--'}`;
+        document.getElementById('fechaSeleccionada').innerText = `Fecha: ${fecha || '--'}`;
+        document.getElementById('horaSeleccionada').innerText = `Hora: ${hora || '--'}`;
+    };
 
+    // Función para mostrar solo el paso actual
+    const showStep = () => {
+        steps.forEach((step, i) => {
+            step.classList.toggle('hidden', i !== currentStep);
+        });
+    };
 
+    // Abrir modal y mostrar el primer paso
+    openModalBtn.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        currentStep = 0; // Reinicia el flujo al primer paso
+        showStep();
+    });
 
+    // Cerrar modal
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
 
-
-
-
-
-
-
-    /*
-const initSlider = () => {
-    const imageList = document.querySelector(".slider-envuelto .lista-imagenes");
-    const slideButtons = document.querySelectorAll(".slider-envuelto .slide-button");
-    const sliderScrollbar = document.querySelector(".contenedor-slider .slider-scrollbar");
-    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-
-    slideButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const direction = button.id === "prev-slide" ? -1 : 1;
-            const scrollAmount = imageList.clientWidth *direction;
-            imageList.scrollBy({left: scrollAmount, behavior: "smooth"})
+    // Paso 1: Selección de servicio
+    document.querySelectorAll('.servicios button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            servicio = btn.getAttribute('data-servicio'); // Guarda el servicio seleccionado
+            updateResumen(); // Actualiza el resumen
+            currentStep++; // Avanza al siguiente paso
+            showStep(); // Muestra el nuevo paso
         });
     });
 
-    const handleSlideButtons = () => {
-        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "block";
-        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "block";
-    }
+    // Paso 2: Selección de fecha y hora
+    document.getElementById('siguientePaso2').addEventListener('click', () => {
+        fecha = document.getElementById('fecha').value; // Toma el valor de la fecha
+        hora = document.getElementById('hora').value; // Toma el valor de la hora
+
+        if (!fecha || !hora) {
+            alert('Selecciona una fecha y una hora.'); // Validación de entrada
+            return;
+        }
+
+        updateResumen(); // Actualiza el resumen
+        currentStep++; // Avanza al siguiente paso
+        showStep(); // Muestra el nuevo paso
+    });
+
+    // Botón de regreso al paso anterior (Paso 2)
+    document.getElementById('anteriorPaso2').addEventListener('click', () => {
+        currentStep--; // Retrocede un paso
+        showStep(); // Muestra el nuevo paso
+    });
+
+    // Paso 3: Formulario
+    document.getElementById('anteriorPaso3').addEventListener('click', () => {
+        currentStep--; // Retrocede al paso anterior
+        showStep(); // Muestra el nuevo paso
+    });
+
+    document.getElementById('formularioCita').addEventListener('submit', e => {
+        e.preventDefault(); // Evita la recarga de la página
+        if (!document.getElementById('politica').checked) {
+            alert('Debes aceptar la política.'); // Validación del acuerdo
+            return;
+        }
+        alert(`Cita agendada con éxito:
+        - ${servicio}
+        - Fecha: ${fecha}
+        - Hora: ${hora}`); // Confirmación
+        modal.style.display = 'none'; // Cierra el modal
+    });
+
+    // Inicializa mostrando solo el paso actual
+    showStep();
+});
 
 
-}*/
+
+// Escucha los cambios en el tamaño de la ventana
+window.addEventListener('resize', adjustCarousel);
+// Llama a la función para establecer los valores iniciales
+adjustCarousel();
 
 window.addEventListener("load",initSlider);
