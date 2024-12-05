@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=Ewert&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="shortcut icon" href="/barber/img/Logo.png">
     <link rel="stylesheet" href="/barber/css/style.css">
     <script src="/barber/js/main.js" defer></script>
@@ -91,25 +92,34 @@
             </div>
         </div> 
     </section>
-
-    <!-- Modal para Agendar Cita-->
+    
+<!-- Modal para Agendar Cita
 <div id="modalCita" class="modal">
     <div class="modal-content">
         <span class="close"><i class='bx bx-x'></i></span>
         <div id="paso1" class="paso">
             <h2>Selecciona el servicio</h2>
             <div class="servicios">
-                <button data-servicio="Corte Niño -$120"><img src="/barber/img/iconos/corteNino.png" width="40px" height="40px"> Corte niño $120</button>
-                <button data-servicio="Corte Adulto - $120"><img src="/barber/img/iconos/corteAdulto.png" width="40px" height="40px">Corte adulto  $120</button>
-                <button data-servicio="Ritual de Barba - $100"><img src="/barber/img/iconos/RitualBarba.png" width="40px" height="40px">Ritual de barba $100</button>
-                <button data-servicio="Ceja - $50"><img src="/barber/img/iconos/ceja.png" width="40px" height="40px">Ceja  $30</button>
-                <button data-servicio="Barba Normal - $80"><img src="/barber/img/iconos/recorteBarba.png" width="40px" height="40px">Barba normal  $80</button>
+                <button data-servicio="Corte Niño - $120" onclick="seleccionarServicio('Corte Niño - $120')">
+                    <img src="/barber/img/iconos/corteNino.png" width="40px" height="40px"> Corte niño $120
+                </button>
+                <button data-servicio="Corte Adulto - $120" onclick="seleccionarServicio('Corte Adulto - $120')">
+                    <img src="/barber/img/iconos/corteAdulto.png" width="40px" height="40px"> Corte adulto $120
+                </button>
+                <button data-servicio="Ritual de Barba - $100" onclick="seleccionarServicio('Ritual de Barba - $100')">
+                    <img src="/barber/img/iconos/RitualBarba.png" width="40px" height="40px"> Ritual de barba $100
+                </button>
+                <button data-servicio="Ceja - $50" onclick="seleccionarServicio('Ceja - $50')">
+                    <img src="/barber/img/iconos/ceja.png" width="40px" height="40px"> Ceja $50
+                </button>
+                <button data-servicio="Barba Normal - $80" onclick="seleccionarServicio('Barba Normal - $80')">
+                    <img src="/barber/img/iconos/recorteBarba.png" width="40px" height="40px"> Barba normal $80
+                </button>
             </div>
-            <!--<button id="siguientePaso1">Siguiente</button>-->
         </div>
         <div id="paso2" class="paso hidden">
             <h2>Selecciona día y hora</h2>
-            <input type="date" id="fecha" required>
+            <div id="datepicker"></div>
             <input type="time" id="hora" required>
             <button id="siguientePaso2">Siguiente</button>
             <button id="anteriorPaso2">Anterior</button>
@@ -117,15 +127,19 @@
         <div id="paso3" class="paso hidden">
             <h2>Introduce tus datos</h2>
             <form id="formularioCita">
-                <input type="text" id="nombre" placeholder="Nombre y Apellidos" required>
-                <input type="tel" id="telefono" placeholder="Número de Teléfono" required>
-                <input type="email" id="correo" placeholder="Correo Electrónico" required>
-                <label>
-                    <input type="checkbox" id="politica" required>
-                    Acepto que en caso de retardo se cancelará mi cita.
-                </label>
-                <button type="submit">Confirmar Cita</button>
-                <button id="anteriorPaso3">Anterior</button>
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" required>
+                </div>
+                <div>
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" required>
+                </div>
+                <button type="submit">Agendar Cita</button>
             </form>
         </div>
         <aside id="resumenCita">
@@ -137,7 +151,7 @@
             </ul>
         </aside>
     </div>
-</div>
+</div>-->
 
 
     <div class="cabecera" id="servicios">
@@ -225,5 +239,7 @@
     </div>
     </footer>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     </body>
 </html>

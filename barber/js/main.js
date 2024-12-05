@@ -66,19 +66,37 @@ function moveToLeft() {
     }
 }
 
-/*========================== Módulos de cita ===============================*/
+function seleccionarServicio(servicio) {
+    document.getElementById('servicioSeleccionado').innerText = `Servicio: ${servicio}`;
+    console.log('Servicio seleccionado:', servicio);
+}
+
+
+/*========================== Módulos de cita ===============================
 document.addEventListener('DOMContentLoaded', () => {
+    const today = new Date(); // Obtén la fecha actual
+    const minDate = today.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+    let servicio = ''; // Para almacenar el servicio seleccionado
+    let fecha = ''; // Para almacenar la fecha seleccionada
+    let hora = ''; // Para almacenar la hora seleccionada
+    let currentStep = 0; // Paso actual
+
+    // Obtén referencias de los elementos necesarios
     const modal = document.getElementById('modalCita');
     const openModalBtn = document.querySelector('.boton[href="#"]');
     const closeModalBtn = document.querySelector('.close');
-    const steps = document.querySelectorAll('.paso'); // Obtiene los pasos
-    const resumen = document.getElementById('resumenCita'); // Panel de resumen
-    let currentStep = 0; // Paso actual
+    const steps = document.querySelectorAll('.paso');
+    const resumen = document.getElementById('resumenCita');
 
-    // Variables para almacenar la selección del usuario
-    let servicio = '';
-    let fecha = '';
-    let hora = '';
+    // Inicializar Flatpickr para mostrar el calendario
+    flatpickr('#datepicker', {
+        inline: true, // Mostrar siempre visible
+        minDate: minDate, // Solo permitir fechas futuras
+        onChange: (selectedDates) => {
+            fecha = selectedDates[0].toISOString().split('T')[0]; // Guardar la fecha seleccionada
+            updateResumen(); // Actualizar el resumen
+        }
+    });
 
     // Función para actualizar el resumen
     const updateResumen = () => {
@@ -116,9 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Paso 2: Selección de fecha y hora
+    // Paso 2: Validar y avanzar
     document.getElementById('siguientePaso2').addEventListener('click', () => {
-        fecha = document.getElementById('fecha').value; // Toma el valor de la fecha
         hora = document.getElementById('hora').value; // Toma el valor de la hora
 
         if (!fecha || !hora) {
@@ -137,30 +154,61 @@ document.addEventListener('DOMContentLoaded', () => {
         showStep(); // Muestra el nuevo paso
     });
 
-    // Paso 3: Formulario
+    // Paso 3: Validar y confirmar
     document.getElementById('anteriorPaso3').addEventListener('click', () => {
         currentStep--; // Retrocede al paso anterior
         showStep(); // Muestra el nuevo paso
     });
 
-    document.getElementById('formularioCita').addEventListener('submit', e => {
-        e.preventDefault(); // Evita la recarga de la página
-        if (!document.getElementById('politica').checked) {
-            alert('Debes aceptar la política.'); // Validación del acuerdo
+    document.getElementById('formularioCita').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log('Formulario enviado');
+    
+        // Obtener valores del formulario
+        const nombre = document.getElementById('nombre').value;
+        const telefono = document.getElementById('telefono').value;
+        const correo = document.getElementById('correo').value;
+    
+        // Obtener información de la cita desde el resumen
+        const servicio = document.getElementById('servicioSeleccionado').innerText.split(': ')[1];
+        const fecha = document.getElementById('fechaSeleccionada').innerText.split(': ')[1];
+        const hora = document.getElementById('horaSeleccionada').innerText.split(': ')[1];
+    
+        // Validar campos obligatorios
+        if (!nombre || !telefono || !correo || !servicio || !fecha || !hora) {
+            alert('Por favor, completa todos los campos.');
+            console.error('Faltan datos:', { servicio, fecha, hora, nombre, telefono, correo });
             return;
         }
-        alert(`Cita agendada con éxito:
-        - ${servicio}
-        - Fecha: ${fecha}
-        - Hora: ${hora}`); // Confirmación
-        modal.style.display = 'none'; // Cierra el modal
+    
+        // Crear objeto de datos para enviar
+        const data = { servicio, fecha, hora, nombre, telefono, correo };
+    
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbwPe21Ju5lEBn-pkWLMYjFwbJdEOziO2zTdqe_wiKnCHQkNBuoC6GZHAfFRw46-CJpf/exec', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' },
+            });
+    
+            if (response.ok) {
+                const result = await response.json(); // Procesar respuesta del servidor
+                console.log('Respuesta del servidor:', result);
+                alert('Cita agendada con éxito.');
+            } else {
+                console.error('Error en la respuesta del servidor:', response.statusText);
+                alert('Hubo un problema al guardar los datos.');
+            }
+        } catch (error) {
+            console.error('Error al enviar datos:', error);
+            alert('No se pudo enviar la información. Intenta más tarde.');
+        }
     });
+    
 
     // Inicializa mostrando solo el paso actual
     showStep();
-});
-
-
+});*/
 
 // Escucha los cambios en el tamaño de la ventana
 window.addEventListener('resize', adjustCarousel);

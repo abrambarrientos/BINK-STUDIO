@@ -711,6 +711,12 @@ html{
     overflow: hidden;
 }
 
+#datepicker {
+    margin: 10px 0;
+    display: block;
+}
+
+
 .hidden {
     display: none !important; 
 }
