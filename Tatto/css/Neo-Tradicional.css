@@ -9,6 +9,7 @@
     /*========== FUENTES Y TIPOGRAFIA ==========*/
     
     --body-font: "Montserrat", sans-serif;
+    --Fuente-Web: "Rye", serif;
     --normal-font-size: .938rem;
     
     /*========== TAMAÑOS DE FUENTES ==========*/
@@ -18,8 +19,10 @@
     /*========== Z-INDEX ==========*/
     --z-tooltip: 10;
     --z-fixed: 100;
+
+    /*======= FUENTES DE LETRA ======*/
+
     }
-    
     
     * {
     box-sizing: border-box;
@@ -30,7 +33,7 @@
     body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    background-color: black;
+    background: #000000;
     padding-top: var(--header-height);
     }
     
@@ -52,11 +55,12 @@
         position: fixed;
         top: 0;
         width: 100%;
-        background-color: black;
-        height: 80px; 
-        box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
+        height: 80px;
+        backdrop-filter: blur(30px);
+        background: rgba(0, 0, 0, .6); /* Negro semitransparente */
         z-index: 2;
     }
+    
     
     /*=============== NAV ===============*/
     .nav {
@@ -304,6 +308,69 @@
     
     }
 
+    .cabecera {
+        width: 100%;
+        height: 450px;
+        background: 
+            linear-gradient(0deg, rgb(17, 17, 17) 0%, rgba(255, 255, 255, 0) 100%), 
+            url(/Tatto/img/Estilos-hero.jpg);
+        margin-top: -160px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+
+    .cabecera h1{
+        color: white;
+        font-family: var(--Fuente-Web);
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .cabecera p{
+        color: red;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .descripcion-contenido {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: rgb(255, 255, 255);
+        background-color: #111111; /* Fondo de color sólido */
+        background-image: url(/Tatto/img/Brocha-oscura-bottom.png); /* Imagen de fondo */
+        background-size: contain; /* Ajustar la imagen al ancho disponible */
+        background-repeat: no-repeat; /* Evitar que la imagen se repita */
+        background-position: bottom; /* Colocar la imagen en la parte inferior */
+    }
+    
+    
+    
+
+    .descripcion-contenido h1, p{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .descripcion-contenido h1{
+        margin-top: 50px;
+    }
+
+    .descripcion-contenido p{
+        width: 60%;
+        margin: 40px;
+        margin-bottom: 150px;
+        color: #888888;
+    }
+
 
     .contenido{
         width: 100%;
@@ -315,37 +382,43 @@
         margin-top: 100px;
     }
 
-    .cabecera{
-        height: 70vh;
-        width: 70%;
-        background: url(/Tatto/img/blackwork.jpg);
-        background-size: contain;
-        background-repeat: no-repeat;
+    .cabecera-galeria{
+        width: 100%;
+        height: auto;
+        margin: 50px;
         display: flex;
-        align-items: center;
         justify-content: center;
-        flex-direction: column ;
+        align-items: center;
     }
-    .cabecera h1{
-        font-size: 50px;
+
+    .cabecera-galeria h1{
         color: white;
-        text-align: center;
-        text-shadow: -2px 5px 5px #ffffff;
-        font-family: "Rye", serif;
-    }
-
-    .cabecera p{
-        font-size: 20px;
-        padding: 0px 20px;
+        font-family: var(--Fuente-Web);
+        font-size: 40px;
         text-align: center;
     }
 
-    .cabecera p{
-       font-size: 20px;
-       margin-top: 100px;
-       color: white;
+
+    .galeria-container{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url(/Tatto/img/Fondo-Galeria.jpg);
+        animation: mover-fondo 10s linear infinite; /* Animación infinita */
     }
 
+    @keyframes mover-fondo {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 100% 0;
+        }
+    }
+    
+    
     .galeria-imagenes{
         width: auto;
         height: auto;
@@ -353,21 +426,22 @@
         grid-template-columns: repeat(3 , 1fr);
         gap: 20px;
         margin-top: 50px;
+        margin: 100px;
+        flex-direction: column;
     }
 
     .galeria-imagenes img{
         view-timeline-name: --reveal;
         animation-name: show;
         animation-fill-mode: both;
-
         animation-timeline: --reveal;
         animation-range: entry 25% cover 50%;
-
         width: 350px;
         height: 350px;
+        opacity: 0.1;
         object-fit: cover;
-
     }
+
 
     .boton{
        margin: 50px 50px;
@@ -394,22 +468,33 @@
         .galeria-imagenes{
             grid-template-columns: 1fr;
             margin-top: 100px;
-            padding: 0px 30px;
         }
-        .cabecera{
-            width: 100%;
-                background: url(/Tatto/img/blackwork.jpg);
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-            .cabecera h1{
-                padding: 20px;
-                font-size: 40px;
-            }
+
+        .galeria-imagenes img{
+            width: 300px;
+            height: 300px;
+        }
             .boton{
                 width: 200px;
                 font-size: 20px;
-            }
+        }
+
+        .descripcion-contenido h1, p{
+            font-size: 16px;
+            text-align: center;
+        }
+    
+        .descripcion-contenido h1{
+            margin-top: 50px;
+        }
+    
+        .descripcion-contenido p{
+            width: 90%;
+            margin: 40px;
+            color: #888888;
+        }
+    
+
         }
     /*========== ANIMACIONES PARA SCROLL IMAGENES*/
 
@@ -501,9 +586,6 @@
     transform: scale(1.3);
     cursor: pointer;
 }
-
-
-   
 
 @media (max-width: 778px){
     
