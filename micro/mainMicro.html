@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic&family=Ewert&family=Leckerli+One&family=Pixelify+Sans:wght@400..700&family=Rye&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="IMG/favicon.png">
     <link rel="stylesheet"
-  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="/micro/css/style.css">
     <script src="js/main.js" defer></script>
     <title>Micropigmentacion</title>
@@ -61,7 +62,31 @@
                     </ul>
                 </li>
 
-                <li><a href="#tecnicas" class="nav__link">Tecnicas y cuidados</a></li>
+                <li class="menu_desplegable__item">
+                    <div class="nav__link">
+                        Tecnicas <i class="ri-arrow-down-s-line menu_desplegable__arrow"></i>
+                    </div>
+
+                    <ul class="menu_desplegable__menu">
+                        <li>
+                            <a href="/micro/microblading.html" class="menu_desplegable__link">
+                                Microblading
+                            </a>                          
+                        </li>
+
+                        <li>
+                            <a href="/micro/microshading.html" class="menu_desplegable__link">
+                                Microshading
+                            </a>
+                        </li>   
+                        
+                        <li>
+                            <a href="/micro/powderBrows.html" class="menu_desplegable__link">
+                                Powder brows
+                            </a>
+                        </li> 
+                    </ul>
+                </li>
                 <li><a href="#cita" class="nav__link">Reserva tu cita</a></li>
             </ul>
             </div>
@@ -80,11 +105,35 @@
         </div>        
     </section>
     
-    <div class="cabecera">
+    <section class="hero-section">
+        <div class="container-hero" data-aos="fade-right">
+            <div class="image-wrapper">
+            <img src="/micro/img/LogoLetras.png" alt="Esli Navarro">
+            </div>
+            <div class="text-wrapper">
+                <h3 class="subtitle">MICROPIGMENTACIÓN</h3>
+                <h1 class="title">BIENVENIDOS</h1>
+                <p class="description">
+                    Bienvenid@ ,  en Esli Navarro, nos dedicamos a realzar tu belleza natural a través de la micropigmentación de alta calidad
+                </p>
+                <p class="description">
+                    En ESLI NAVARRO somos expertos en el arte de la micropigmentación, utilizando técnicas avanzadas y productos de primera calidad para ofrecer resultados excepcionales.
+                </p>
+                <ul class="services">
+                    <li><span id="palomita">✔</span> Microblading</li>
+                    <li><span id="palomita">✔</span> Microshading</li>
+                    <li><span id="palomita">✔</span> Powder brows</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="cabecera" id="cabecera" data-aos="fade-up">
         <h1>TECNICAS Y CUIDADOS</h1>
     </div>
-    <div class="container-micro" id="tecnicas">
-        <div class="card">
+    <div class="container-micro" id="tecnicas" data-aos="fade-up">
+        <div class="card" data-aos="fade-up">
             <div class="face front">
                 <img src="/micro/img/micro2.jpg" alt="">
                 <h3>MICROBLADING</h3>
@@ -98,7 +147,7 @@
             </div>
         </div>
     
-        <div class="card">
+        <div class="card" data-aos="fade-up">
             <div class="face front">
                 <img src="/micro/img/MICROSHA2.jpg" alt="">
                 <h3>MICROSHADING</h3>
@@ -111,8 +160,7 @@
                 </div>
             </div>
         </div>
-    
-        <div class="card">
+        <div class="card" data-aos="fade-up">
             <div class="face front">
                 <img src="/micro/img/powder2.jpg" alt="">
                 <h3>POWDER BROWS</h3>
@@ -127,6 +175,29 @@
         </div>
     </div>
 
+   
+
+    
+    <section class="confianza" data-aos="flip-up">
+        <div class="contenedor-confianza">
+            <h2>¿POR QUE CONFIAR EN NOSOTROS?</h2>
+            <p>
+                En <strong>ESLI NAVARRO</strong>, somos especialistas en micropigmentación y nuestros certificados lo avalan. 
+                Nos apasiona realzar la belleza natural de cada persona, 
+                combinando técnicas avanzadas con un enfoque personalizado.
+                Nuestro compromiso es ofrecer resultados excepcionales, seguros y adaptados a tus necesidades.
+            
+            </p>
+            <div class="imagenes-confianza">
+                <img src="/micro/img/Certificado.jpg" alt="Proceso de micropigmentación">
+                <img src="/micro/img/Esli-Certificado.jpg" alt="Herramientas esterilizadas">
+                <img src="/micro/img/Grupo-Certificado.jpg" alt="Resultados finales">
+            </div>
+        </div>
+    </section>
+    
+    
+
 
     <div class="citas" id="cita">
         <div class="titulo">
@@ -140,6 +211,7 @@
             <img src="/micro/img/imgCitasMq.jpg" alt="">
         </div>
     </div>
+
 
 
 
@@ -167,6 +239,11 @@
     </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+   AOS.init();
+</script>
 
     </body>
 </html>

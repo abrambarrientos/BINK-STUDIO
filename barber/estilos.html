@@ -68,40 +68,52 @@
     </header>
 
 
-     
+
 <section class="estilos">
+    <div class="cabecera">
+        <h1>ESTILOS</h1>
+    </div>
+    <div class="descripcion-contenido">
+        <h1>BIENVENIDO A NUESTRA GALERIA DE ESTILOS DE CORTES</h1>
+        <p>
+            Déjate inspirar por nuestra creatividad y experiencia, y elige el look que mejor se ajuste a ti. Nuestro equipo está listo para ayudarte a lograr el estilo que siempre has querido.
+        </p>
+    </div>
+    <div class="cabecera-galeria">
+        <h1>GALERIA DE TRABAJOS</h1>
+    </div>
     <div class="imagenes-estilos">
-        <div class="spiky">
+        <div class="spiky" onclick="openPopup('Buzz Cut', 'Es un estilo muy corto y uniforme en el que se corta el cabello a una longitud muy cercana al cuero cabelludo.')">
             <div class="overlay">
                 <img src="/barber/img/Estilos/BuzzIndivudual.jpg" alt="Buzz Cut" width="300px" height="420px">
                 <div class="texto-overlay">Buzz Cut</div>
             </div>
         </div>
-        <div class="spiky">
+        <div class="spiky" onclick="openPopup('French crop', 'Este corte es un estilo corto en la parte superior con los laterales mas cortos o fade. Su textura es mas desordenada y con un flequillo ligeramente mas largo.')">
             <div class="overlay">
                 <img src="/barber/img/Estilos/FrenchIndivudual.jpg" alt="French Crop" width="300px" height="420px">
                 <div class="texto-overlay">French Crop</div>
             </div>
         </div>
-        <div class="spiky">
+        <div class="spiky" onclick="openPopup('Mullet', 'La version moderna del mullet es mas refinada, combina un corte mas pequeño en los laterales y la parte delantera, mientras que es de mayor longitud en la parte posterior.')">
             <div class="overlay">
                 <img src="/barber/img/Estilos/MulletIndividual.jpg" alt="Mullet" width="300px" height="420px">
                 <div class="texto-overlay">Mullet</div>
             </div>
         </div>
-        <div class="spiky">
+        <div class="spiky" onclick="openPopup('Pompadour', 'Se caracteriza por concetrar un gran volumen de cabello levantado sobre la frente, a modo de flequillo elevado arrastrando las puntas hacia atras.')">
             <div class="overlay">
                 <img src="/barber/img/Estilos/PompadorIndividual.jpg" alt="Pompadour" width="300px" height="420px">
                 <div class="texto-overlay">Pompadour</div>
             </div>
         </div>
-        <div class="spiky">
+        <div class="spiky" onclick="openPopup('Spiky', 'Se trata de un corte de los laterales muy corto, pero con los mechones de la parte superior de la cabeza muy largos que terminan en banda y se peinan hacia arriba.')">
             <div class="overlay">
                 <img src="/barber/img/Estilos/SpikyIndividual.jpg" alt="Spiky" width="300px" height="420px">
                 <div class="texto-overlay">Spiky</div>
             </div>
         </div>
-        <div class="spiky">
+        <div class="spiky" onclick="openPopup('Undercut', 'Es un look donde los laterales se cortan muy cortos o al ras y la parte superior se deja larga. Funciona con peinados hacia atras, flequillo o texturizados.')">
             <div class="overlay">
                 <img src="/barber/img/Estilos/UndercutIndividual.jpg" alt="Undercut" width="300px" height="420px">
                 <div class="texto-overlay">Undercut</div>
@@ -110,6 +122,15 @@
     </div>
     <a href="https://www.instagram.com/thebbarbershop?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="button">VER MAS CORTES</a>
 </section>
+
+<!-- Popup -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-title"></h2>
+        <p id="popup-text"></p>
+    </div>
+</div>
 
 <footer class="footer">
     <div class="descripcion">

@@ -34,7 +34,7 @@ html{
     body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    background-color: #D8D4CA;
+    background-color: #d8d4ca;
     padding-top: var(--header-height);
  
     }
@@ -310,56 +310,160 @@ html{
     }
 
 /*===================== MAIN ====================*/
-
-
-.estilos{
+.header1 {
     width: 100%;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.estilos .info{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.estilos .info h1{
-    font-family: "Leckerli One", cursive;
-    font-size: 3rem;
-    font-weight: 10;
-    padding: 30px 0px;
-    color: white;
-}
-
-.estilos .info p{
-    text-align: center;
-    font-size: 20px;
-    font-weight: 10;
-    padding: 0px 10px;
-}
-
-.estilos .buton{
-    margin-top: 40px;
-    width: 300px;
     height: auto;
+    margin-top: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #9ba697;
     padding: 20px;
-    background: #333536;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    transition: .3s all ease;
-    text-align: center;
 }
 
-.estilos .buton:hover{
-    transform: scale(1.03);
+.header1-info{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
+
+.header1-info h1{
+    color: #333536;
+    font-family: 'Posterama';
+    font-size: 40px;
+}
+
+.header1-info p{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en resoluciones pequeñas */
+    padding: 20px;
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    background-color: #d8d4ca;
+}
+
+.content .text, .content .image {
+    flex: 1;
+    max-width: 650px;
+    padding: 10px;
+}
+
+.content .text{
+    margin-top: 160px;
+    margin-left: 50px;
+}
+
+.content .text h2{
+    font-size: 20px;
+    color: #333536;
+    font-size: 2.3rem;
+    font-family: 'Posterama';
+    font-weight: 550;
+    margin-bottom: 30px;
+}
+
+.content .text p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+.carousel {
+    position: relative;
+    max-width: 100%; 
+    align-content: center;
+    margin-top: 0px auto;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 5px;
+}
+
+.carousel-slide {
+    flex: 0 0 calc(100% / 3); /* Muestra 3 imágenes por vez */
+    box-sizing: border-box;
+}
+
+.carousel img {
+    width: 100%; /* Asegura que las imágenes se ajusten a su contenedor */
+    height: 100%; /* Mantén las proporciones */
+    border-radius: 5px;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .header1-info{
+        width: 100%;
+    }
+    .content {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        padding: 10px;
+        align-items: center;
+    }
+
+    .content .text{
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    .content .text, .content .image {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .header1 h1 {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 1022px) { /* Ajusta para tablets */
+    .carousel {
+        max-width: 100%;
+    }
+
+    .carousel-slide {
+        flex: 0 0 calc(100% / 2); /* Muestra 2 imágenes por vez */
+    }
+}
+
+@media (max-width: 768px) { /* Ajusta para móviles */
+    .carousel {
+        max-width: 95%;
+        margin-top: 20px;
+    }
+
+    .carousel-slide {
+        flex: 0 0 100%; /* Muestra 1 imagen por vez */
+    }
+}
+
 
 .beneficios{
     width: 100%;
@@ -369,12 +473,11 @@ html{
     align-items: center;
     flex-direction: column;
     padding: 30px 0px;
-    margin-top: 80px;
     background: #9ba697;
 }
 
 .beneficios h2{
-    font-family: "Leckerli One", cursive;
+    font-family: 'Posterama';
     font-size: 4rem;
     color: white;
 }
@@ -420,6 +523,8 @@ html{
 
 .card-info p{
     font-size: 20px;
+    color: #333536;
+
 }
 
 @media (max-width: 1024px){
@@ -442,7 +547,7 @@ html{
     }
     .estilos .info h1 {
         text-align: center;
-        font-size: 2.4rem;
+        font-size: 1.4rem;
     }
     .estilos .buton{
         display: flex;
@@ -461,6 +566,23 @@ html{
 }
 
 @media (max-width: 600px){
+    .botones{
+        width: 80%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .estilos .info p{
+        width: 90%;
+    
+    }
+
+    .estilos .info{
+       width: 80%;
+    }
     .card-container{
         grid-template-columns: repeat(1,250px);
     }
@@ -482,7 +604,7 @@ html{
     justify-content: center;
     padding: 80px 0px;
     font-size: 2rem;
-    font-family: "Leckerli One", cursive;
+    font-family: 'Posterama';
     color: white;
  }
 
@@ -520,7 +642,7 @@ html{
 .content {
     padding: 15px;
     border-radius: 6px;
-    background-color: #3333333a;
+    background-color: #d8d4ca;
     color: white;
 }
 
@@ -571,7 +693,7 @@ html{
 }
 
 .footer h1{
-    font-family: "Leckerli One", cursive;
+    font-family: 'Posterama';
     color: white;
     font-size: 25px;
 }
@@ -662,6 +784,73 @@ html{
 
 }
 
+
+/*================= GALERIA DE IMAGENES ======================*/
+
+.galeria-imagenes {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #D8D4CA;
+}
+
+.galeria-imagenes h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.grid-galeria img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-galeria img:hover {
+    transform: scale(1.05);
+}
+
+ .buton{
+    margin-top: 40px;
+    width: 200px;
+    height: auto;
+    padding: 20px;
+    background: #333536;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: .3s all ease;
+    text-align: center;
+}
+
+.buton:hover{
+    transform: scale(1.03);
+}
+
+@media (max-width: 680px){
+    .grid-galeria {
+        grid-template-columns: 1fr;
+        place-items: center;
+        justify-content: center;
+    }
+    .grid-galeria img {
+        width: 70%;
+        height: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+}
+   
 
 
 

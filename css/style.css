@@ -317,21 +317,26 @@
 .img_index{
     width: 100%;
     height: 856px;
-    background: url(../img/Logo3.png);
+    background: url(../img/Fondo-hero.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
 
-.img{
-    height: var(--header-height);
-    width: 100%;
-    height: 856px;
-    background: url(../img/Logo1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 /*======================= SECCION DE LOS NEGOCIOS ==========================*/
@@ -555,6 +560,7 @@ input{
 
 
 @media (max-width: 768px) {
+
     .card {
         width: 100%;
         height: 300px; 
@@ -594,18 +600,78 @@ input{
     }
 }
 
+@media (max-width: 460px){
+    .img_index img{
+        width: 350px;
+        height: 350px;
+    }
+}
+   
 
-.footer{
-    width: 100%;
-    height: 100px;
+
+.footer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 0 50px;
-    border-top: 1px solid #dcdcdc;
+    justify-content: center;
+    background-color: #ffffff; 
+    border-top: 1px solid #888888;
+    color: #000000; 
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
 }
 
-.footer p{
-    font-size: 15px;
-    font-weight: bold;
+.footer img {
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.footer img:hover {
+    transform: scale(1.1); 
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.footer-divider {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-divider hr {
+    width: 50px; /* Línea pequeña */
+    border: 1px solid #888888; /* Color de la línea */
+    margin: 10px auto;
+    opacity: 0.7;
+}
+
+.footer-divider p {
+    margin: 5px 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #000000;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px;
+    }
+
+    .footer img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .footer p, 
+    .footer-divider p {
+        font-size: 0.8rem;
+    }
+
+    .footer-divider hr {
+        width: 40px;
+    }
 }

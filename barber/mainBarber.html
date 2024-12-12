@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@animxyz/core">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="shortcut icon" href="/barber/img/Logo.png">
     <link rel="stylesheet" href="/barber/css/style.css">
-    <script src="/barber/js/main.js" defer></script>
     <title>THE B BARBER</title>
 </head>
 <body>
@@ -68,24 +68,11 @@
             </div>
         </nav>
     </header>
-    <!-- FIN DE LA BARRA DE NAVEGACION -->
-
-    <!-- HERO 
+    
     <section class="hero">
         <div class="contenido-hero">
-            <h1>THE BARBER</h1>
-            <h2>TU IMAGEN NUESTRA PASION</h2>
-            <div class="Botones">
-                <a class="boton" href="/barber/nosotros.html">SOBRE NOSOTROS</a>
-                <a class="boton" href="#">AGENDA TU CITA AHORA</a>
-            </div>
-        </div>        
-    </section>-->
-
-    <section class="hero">
-        <div class="contenido-hero">
-            <h1>THE B BARBER</h1>
-            <h2>TU IMAGEN NUESTRA PASION</h2>
+                <img src="/barber/img/Logo.png" alt="Logo barber" width="500px" height="650px">
+            <!--<h2>TU IMAGEN NUESTRA PASION</h2>-->
             <div class="Botones">
                 <a class="boton" href="/barber/nosotros.html">SOBRE NOSOTROS</a>
                 <a class="boton" href="https://api.whatsapp.com/send?phone=%2B5214494482410&context=ARBCaTyVUB-K2JHDpfRkN5dxTkMsAmUM-eaHpDv2QdbAU96mI3b1rZitv55-mB39AGH-nEyeBv3alVYSCMxh3eXTjGILKIIuf1uOS57XRGy-arI_Ja8EkTmXCgcjBv7MWmP9b_S-Sv9eJyTZR-3UdFprsw&source=FB_Page&app=facebook&entry_point=page_cta&fbclid=IwY2xjawG-r9JleHRuA2FlbQIxMAABHYUEGnwJ6jKemmnBO8eZlS3999UR_IDiqF3IP_HYt9hzn0mwnl8UoOQhvg_aem_retNeywy9fgA7c-pSDdJoQ" target="_blank">AGENDA TU CITA AHORA</a>
@@ -94,10 +81,27 @@
     </section>
     
 
+    <section class="bienvenida" data-aos="fade-right">
+        <div class="bienvenida-txt">
+            <h2>BIENVENIDOS A LA WEB DE THE B BARBER</h2>
+            <p>
+                Si te gustaria agendar una cita con nosostros , da click directamente a nuestro boton de 
+                <a class="link" href="#citas">agendar</a> y dinos por Whatsapp que te gustaria hacerte.
+            </p>
+            <p>
+                Puedes ver nuestos <a class="link" href="#estilos">estilos</a> mas solicitados y aprender un poco mas de ellos 
+            </p>
+            <p>
+                Y no te olvides de ver nuestros consejos sobre los <a class="link" href="#team">cuidados</a> antes y despues de tu servicio.
+            </p>
+        </div>
+        <div class="div"></div>
+    </section>
 
     <div class="cabecera" id="servicios">
         <h1>SERVICIOS</h1>
     </div>
+
 
     <div class="contenedor-carrusel">
         <div class="container-carousel">
@@ -123,38 +127,30 @@
         </div>
     </div>
 
-
+    
 
     <!-- MAIN -->
-
+    <div class="grid-container" id="estilos">
+        <div class="grid-item text" data-aos="fade-right">
+            <h3>CUIDADOS</h3>
+            <p>Cuida de tu cabello con estos consejos</p>
+            <a class="button" href="/barber/cuidados.html">VER MAS</a>
+        </div>
+        <div class="grid-item image" data-aos="fade-right">
+            <img src="/barber/img/cuidados2.jpg" alt="Woman in dress">
+        </div>
+        <div class="grid-item image" data-aos="fade-left">
+            <img src="/barber/img/EstilosCorte2.jpg" alt="Fox in snow">
+        </div>
+        <div class="grid-item text" data-aos="fade-left">
+            <h3>ESTILOS DE CORTE</h3>
+            <p>Aprende sobre los difetentes estilos de corte de cabello</p>
+            <a class="button" href="/barber/estilos.html">VER MAS</a>
+        </div>
+    </div>
     
-        <section class="Main">
-            <div class="container_main">
-                <div class="conocenos">
-                    <div class="img">
-                        <img src="/barber/img/EstilosCorte2.jpg" alt="Conocenos" width="400px" height="400px">
-                    </div>
-                    <div class="info">
-                        <h1>ESTILOS DE CORTE</h1>
-                        <p>Aprende sobre los diferentes estilos de corte</p>
-                        <a class="boton" href="/barber/estilos.html">MAS</a>
-                    </div>
-                </div>
-                <div class="Cuidados">
-                    <div class="info">
-                        <h1>CUIDADOS</h1>
-                        <p>Cuida de tu cabello con estos consejos</p>
-                        <a class="boton" href="/barber/cuidados.html">MAS</a>
-                    </div>
-                    <div class="img">
-                        <img src="/barber/img/cuidados2.jpg" alt="Conocenos" width="400px" height="400px">
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        
-        <div class="Horarios">
+    
+        <div class="Horarios" id="citas" data-aos="fade-right">
             <div class="info-direccion">
                 <div class="info-txt">
                     <h2>NUESTRO</h2>
@@ -197,7 +193,12 @@
     </div>
     </footer>
 
-
+    
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="/barber/js/main.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     </body>
 </html>

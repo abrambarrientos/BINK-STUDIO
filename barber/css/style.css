@@ -329,7 +329,8 @@ html{
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: url(/barber/img/ImgHero.jpg);
+    background: url(/barber/img/Hero.png);
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -359,23 +360,33 @@ html{
     justify-content: center;
     gap: 20px;
     z-index: 10;
+    animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
 
-.contenido-hero h1{
-    color: #b4912a;
-    font-size: 4rem;
-    font-family: 'Futura';
-}   
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 
 .contenido-hero h2{
-    color: #b4912a;
+    font-family: 'Futura';
+    margin-top: -200px;
+    color: #ffffff;
     font-size: 20px;
 }   
 
 .contenido-hero .Botones{
     display: flex;
     gap: 20px;
+    margin-top: -180px;
 }
 
 .contenido-hero .boton{
@@ -386,20 +397,16 @@ html{
     height: 60px;
     width: 250px;
     border-radius: 10px;
-    background-color: #b4912a;
+    /*background-color: #b4912a;*/
+    backdrop-filter: blur(1px);
     font-weight: bold;
     font-size: 15px;
     transition: .5s ease;
     text-align: center;
 }
-.contenido-hero .boton1{
-    background-color: transparent;
-    background: #b4912a;
-    backdrop-filter: blur(2px);
-}
 
 .contenido-hero .boton:hover{
-    background-color: #d1ba92;
+    background-color: #9c8c6f54;
 }
 
 
@@ -412,7 +419,7 @@ html{
 }
 
 .cabecera h1{
-    color: #b18e29;
+    color: #ae9f7b;
     font-size: 3rem;
     font-weight: bold;
 }
@@ -428,6 +435,7 @@ html{
     .contenido-hero h1{
         text-align: center;
     }
+
 
     .contenido-hero .boton{
         width: 150px;
@@ -452,7 +460,17 @@ html{
         width: 300px;
         height: 300px;
     }
+    .contenido-hero h2{
+        margin-top: -100px;
+    }   
+    .contenido-hero .Botones{
+        display: flex;
+        gap: 20px;
+        margin-top: -100px;
+    }
 }
+
+
 
 
 
@@ -465,10 +483,8 @@ html{
 .container-carousel {
     position: relative;
     width: 100%;
-    max-width: 1200px;
-    height: 480px;
-    background-color: #000000;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    max-width: 1600px;
+    height: 600px;
     margin: 30px;
     overflow: hidden;
   
@@ -485,6 +501,10 @@ html{
 .slider-section {
     width: calc(100% / 5); 
     height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .slider-section img {
@@ -492,7 +512,7 @@ html{
     height: 100%;
     background-size: contain;
     background-repeat: no-repeat;
-    transition: transform 0.3s ease;
+
 }
 
 /*
@@ -516,6 +536,8 @@ html{
     transition: .5s ease;
     user-select: none;
 }
+
+
 
 .btn-left:hover,
 .btn-right:hover {
@@ -549,141 +571,247 @@ html{
     }
 }
 
-/*======================= MAIN ==========================*/
 
 
-.Main{
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/*==================== MAIN =================*/
 
-}
-
-.container_main{
-    z-index: 1;
-    max-width: 1300px;
+.bienvenida {
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 20px;
-    margin: 0 auto;
+    color: rgb(255, 255, 255);
+    background: 
+        url(/Tatto/img/Brocha-Ocura-top.png) top no-repeat, /* Imagen superior */
+        url(/Tatto/img/Brocha-oscura-bottom.png) bottom no-repeat, /* Imagen inferior */
+        url(/Tatto/img/Img-fondo.jpg) center/cover no-repeat fixed; /* Fondo principal */
+    background-size: contain, contain, cover; /* Tamaños de las capas */
 }
 
-.container_main img{
-    border-radius: 20px;
-    max-width: 100%;
-    height: auto;
-}
 
-.conocenos{
-    width: 100%;
-    display: flex;
-    height: 400px;
-}
-.Cuidados{
-    width: 100%;
-    display: flex;
-    height: 400px;
-
-}
-.info{
-    display: grid;
-    place-items: center;
-    margin: auto; 
-    gap: 1rem;
-}
-
-.info h1{
-    color: #b18e29;
-    font-size: 45px;
-    text-align: center;
-}
-
-.info .boton{
+.bienvenida-txt{
+    width: 60%;
+    height: 100%;
+    margin-top: 200px;
+    margin-bottom: 200px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: #ffff;
-    height: 50px;
-    width: 180px;
-    border-radius: 10px;
-    background-color: #222222;
-    font-weight: bold;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1; 
+}
+
+.bienvenida-txt h2{
+    font-size: 3.5rem;
+    color: white;
+}
+
+.bienvenida-txt h5{
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #C0A372;
+    font-weight: lighter;
+}
+
+.bienvenida-txt p{
+    width: 80%;
+    margin-top: 20px;
     font-size: 20px;
-    transition: .5s ease;
+    color: white;
 }
 
-.info p{
-    color: #7f7f7f;
-    font-size: 2rem;
-    padding: 0 20px;
+.bienvenida-txt .link {
+    position: relative; 
+    color: white;
+    border-bottom: 1px solid #C0A372;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
 }
 
-.info .boton:hover{
-    background-color: #d1ba92;
+.bienvenida-txt .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: transparent;
+    z-index: -1; 
+    transform-origin: bottom; 
+    transition: height 0.3s ease, background-color 0.3s ease; 
 }
 
-@media (max-width: 1024px) {
-    .conocenos, .Cuidados {
-        width: 100%; 
-        flex-direction: column; 
-        margin-top: 100px;
-    }
+.bienvenida-txt .link:hover {
+    color: black;
+}
 
-    .info h1 {
-        font-size: 1.8rem; 
-        margin-top: 30px;
-    }
-
-    .info .boton {
-        width: 150px; 
-        font-size: 16px;
-    }
-    .Cuidados .info {
-        order: 2; 
-    }
-    .conocenos, .Cuidados .img {
-        order: 1; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.bienvenida-txt .link:hover::after {
+    background-color: #c0a372; 
+    height: 100%; 
 }
 
 
-@media (max-width: 665px) {
-    .container_main {
-        padding: 20px; 
+/* Responsive */
+@media (max-width: 768px) {
+    .bienvenida {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
     }
 
-    .conocenos, .Cuidados {
-        width: 100%; 
-        flex-direction: column; 
+    .bienvenida-txt {
+        width: 100%;
+        margin-top: 100px; 
+        margin-bottom: 100px; 
+        text-align: center; 
     }
 
-    .info h1 {
-        font-size: 1.8rem; 
-    }
-    .info p{
-        font-size: 1.5rem;
-        text-align: center;
+    .bienvenida-txt h2 {
+        width: 100%;
+        font-size: 2rem; 
         padding: 10px;
     }
 
-    .info .boton {
-        width: 100%; 
-        font-size: 16px;
+    .bienvenida-txt h5 {
+        font-size: 1.5rem; 
     }
-    .Cuidados .info {
-        order: 2; 
-    }
-    .Cuidados .img {
-        order: 1; 
+
+    .bienvenida-txt p {
+        width: 100%;
+        font-size: 16px; 
+        text-align: center;
+        padding: 0px 10px;
     }
 }
+
+@media (max-width: 480px) {
+    .bienvenida-txt h2 {
+        font-size: 2rem;
+    }
+
+    .bienvenida-txt h5 {
+        font-size: 1.3rem; 
+    }
+
+    .bienvenida-txt p {
+        font-size: 14px; 
+    }
+}
+
+
+/*======================= MAIN ==========================*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
+    width: 100%;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item.image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.grid-item.text h3 {
+    color: #ae9f7b; 
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.grid-item.text p {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #7f7f7f;
+}
+
+.grid-item.text .button {
+    width: 180px;
+    background: #222222; 
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.grid-item.text .button:hover {
+    background: #ae9f7b;
+    color: #000;
+}
+
+@media(max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px; 
+    }
+
+   
+    .grid-item:nth-child(1) {
+        order: 2; 
+    }
+
+    .grid-item:nth-child(2) {
+        order: 1; /* Primer texto */
+    }
+
+    .grid-item:nth-child(3) {
+        order: 3; /* Segunda imagen */
+    }
+
+    .grid-item:nth-child(4) {
+        order: 4; /* Segundo texto */
+    }
+    
+    .grid-item {
+        padding: 15px;
+    }
+}
+
+@media(max-width: 480px) {
+    .grid-item {
+        padding: 15px;
+    }
+    .grid-container {
+        gap: 15px;
+    }
+
+    .grid-item.image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .grid-item.text h3 {
+        font-size: 2rem;
+    }
+
+    .grid-item.text p {
+        font-size: 1.1rem;
+    }
+
+    .grid-item.text .button {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
+
 
 /* ==================== HORARIO ==================== */
 
@@ -719,14 +847,14 @@ html{
 .info-txt h1{
     font-size: 6rem;
     font-weight: bolder;
-    color: #b4912a;
+    color: #ae9f7b;
 }
 
 .info-txt h4{
     font-size: 4rem;
     margin-top: 20px;
     font-weight: lighter;
-    color: #b4912a;
+    color: #ae9f7b;
 }
 .info-txt p{
     margin-top: 20px;
@@ -738,7 +866,7 @@ html{
     width: 350px;
     height: 30px;
     margin-top: 20px;
-    background: #b4912a;
+    background: #ae9f7b;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -793,10 +921,6 @@ html{
 
     }
 }
-   
-
-
-
 
 /* ==================== FOOTER ==================== */
 

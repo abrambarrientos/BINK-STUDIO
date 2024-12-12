@@ -58,7 +58,7 @@ html{
         background-color: black;
         height: 80px; 
         box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-        z-index: 2;
+        z-index: 1000;
     }
     
     /*=============== NAV ===============*/
@@ -330,16 +330,28 @@ html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: myAnim 2s ease 0s 1 normal forwards;
     gap: 20px;
 
 }
 
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 
 .contenido-hero h1{
     color: #ffffff;
-    font-size: 1rem;
-    font-family: "Rye", serif;
-    margin-top: -110px;
+    font-size: 1.5rem;
+    /*font-family: "Rye", serif;*/
+    margin-top: -180px;
 }    
 
 
@@ -355,6 +367,7 @@ html{
     font-weight: bold;
     font-size: 20px;
     transition: .5s ease;
+    margin-top: -150px;
 }
 
 .contenido-hero .boton:hover{
@@ -368,24 +381,289 @@ html{
         align-items: center;
         padding: 0px 10px;
     }
+    .contenido-hero img{
+        width: 300px;
+        height: 300px;
+    }
 
     .contenido-hero h1{
         width: 100%;
-        font-size: 2rem;
+        font-size: 1rem;
         text-align: center;
+        margin-top: -80px;
+    }
+    .contenido-hero .boton{
+        margin-top: -80px;
     }
 }
 
 /*======================= MAIN ==========================*/
 
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
+.team{
+    padding: 100px 0;
+}
+
+.team-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+    gap: 40px;
+}
+
+.team-item{
+    overflow: hidden;
+    position: relative;
+}
+
+.team-item::before,
+.team-item::after,
+.team-inner::before,
+.team-inner::after{
+    content: '';
+    position: absolute;
+    background-color: hsl(0, 0%, 100% , 0.5);
+    z-index: 1;
+    transition: .1s;
+}
+
+.team-item::before,
+.team-item::after{
+    height: 3px;
+    width: 0;
+    transition-delay: 0.1s;
+}
+
+.team-item::before{
+    top: 20px;
+    left: 20px;
+}
+
+.team-item::after{
+    bottom: 20px;
+    right: 20px;
+}
+
+.team-item:hover::before,
+.team-item:hover::after{
+    width: calc(100% - 40px);
+    transition-delay: 0s;
+}
+
+.team-inner::before,
+.team-inner::after{
+    height: 0;
+    width: 3px;
+}
+
+.team-inner::before{
+    right: 20px;
+    top: 20px;
+}
+
+.team-inner::after{
+    left: 20px;
+    bottom: 20px;
+}
+
+.team-item:hover .team-inner::before,
+.team-item:hover .team-inner::after{
+    height: calc(100% - 40px);
+    transition-delay: .1s;
+}
+
+.team-item img{
+    width: 100%;
+    display: block;
+    filter: grayscale(1);
+    transition: .5s;
+}
+
+.team-item:hover img{
+    opacity: .3;
+    transform: scale(1.1);
+}
+
+.team-info{
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(calc(-50% + 20px));
+    z-index: 2;
+    text-align: center;
+    text-transform: capitalize;
+    color: white;
+    opacity: 0;
+    transition: .5s;
+}
+
+.team-item:hover .team-info{
+    opacity: 1;
+    transform: translateY(-50%);
+    transition-delay: .1s;
+}
+
+.team-info .button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.team-item:hover .team-info .button {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+
+.team-info h3{
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+
+@media (max-width: 768px) {
+    .team-item::before,
+    .team-item::after,
+    .team-inner::before,
+    .team-inner::after {
+        transition: none;
+    }
+
+    .team-item::before,
+    .team-item::after {
+        width: calc(100% - 40px);
+    }
+
+    .team-inner::before,
+    .team-inner::after {
+        height: calc(100% - 40px);
+    }
+
+    /* Texto y botón visibles */
+    .team-info {
+        opacity: 1;
+        transform: translateY(-50%);
+        transition: none;
+    }
+
+    .team-info .button {
+        opacity: 1;
+        transition: none;
+    }
+}
+
+/*
 .Main{
-    padding: 40px;
+    width: 100%;
+    height: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.container_main{
+    width: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    place-items: center;
+    justify-items: center;
+    gap: 100px;
+}
+
+.container_main img{
+    width: 600px;
+    height: 600px;
+}
+
+.container_main .card{
+    width: 650px;
+    height: auto;
+    text-align: center;
+}
+
+.card:nth-child(2){
+    margin-top: -300px;
+}
+.card h1{
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 20px;
+}
+.card p{
+    color: white;
+    width: 78%;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.card a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: .3s all ease;
+}
+
+.card a:hover{
+    color: #c0a372;
+}
+
+.card .linea-blanca{
+    display: block; 
+    background-color: #6d6b68; 
+    height: 2px; 
+    width: 20%; 
+    margin:10px  auto; 
+}
+
+@media (max-width: 950px){
+    .container_main{
+        width: auto;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+        justify-items: center;
+    }
+
+    .container_main img{
+        width: 300px;
+        height: 300px;
+    }
+
+    .card p{
+        color: white;
+        width: 90%;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    .container_main .card{
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .card:nth-child(2){
+        margin-top: 10px;
+    }
+}
+   
+
+/*
 .container_main{
     z-index: 1;
     max-width: 1000px;
@@ -396,8 +674,8 @@ html{
     flex-direction: column;
     border-radius: 20px;
     margin: 0 auto;
-    /*box-shadow: 0px 0px 100px 0px #1a1a1a;*/
-    /*box-shadow: 0 2px 5px rgba(211, 200, 200, 0.1);*/
+    /*box-shadow: 0px 0px 100px 0px #1a1a1a;
+    /*box-shadow: 0 2px 5px rgba(211, 200, 200, 0.1);
 }
 
 .container_main img{
@@ -470,8 +748,132 @@ html{
     .Cuidados .img {
         order: 1; 
     }
+}*/
+
+/*==================== MAIN =================*/
+
+.bienvenida{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    place-items: center;
+    justify-content: center;
+    background-color: #040404; /* Fondo de color sólido */
+        background-image: url(/Tatto/img/Brocha-oscura-bottom.png); /* Imagen de fondo */
+        background-size: contain; /* Ajustar la imagen al ancho disponible */
+        background-repeat: no-repeat; /* Evitar que la imagen se repita */
+        background-position: bottom; /* Colocar la imagen en la parte inferior */
+    position: relative; 
 }
 
+.bienvenida-txt{
+    width: 60%;
+    height: 100%;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative; 
+    z-index: 1; 
+}
+
+.bienvenida-txt h2{
+    font-size: 3.5rem;
+    color: white;
+}
+
+.bienvenida-txt h5{
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #C0A372;
+    font-weight: lighter;
+}
+
+.bienvenida-txt p{
+    width: 80%;
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.bienvenida-txt .link {
+    position: relative; 
+    color: white;
+    border-bottom: 1px solid #C0A372;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.bienvenida-txt .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: transparent;
+    z-index: -1; 
+    transform-origin: bottom; 
+    transition: height 0.3s ease, background-color 0.3s ease; 
+}
+
+.bienvenida-txt .link:hover {
+    color: black;
+}
+
+.bienvenida-txt .link:hover::after {
+    background-color: #c0a372; 
+    height: 100%; 
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .bienvenida {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+    }
+
+    .bienvenida-txt {
+        width: 100%;
+        margin-top: 100px; 
+        margin-bottom: 100px; 
+        text-align: center; 
+    }
+
+    .bienvenida-txt h2 {
+        width: 100%;
+        font-size: 2rem; 
+        padding: 10px;
+    }
+
+    .bienvenida-txt h5 {
+        font-size: 1.5rem; 
+    }
+
+    .bienvenida-txt p {
+        width: 100%;
+        font-size: 16px; 
+        text-align: center;
+        padding: 0px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bienvenida-txt h2 {
+        font-size: 2rem;
+    }
+
+    .bienvenida-txt h5 {
+        font-size: 1.3rem; 
+    }
+
+    .bienvenida-txt p {
+        font-size: 14px; 
+    }
+}
 
 /*======================= ESTILOS ==========================*/
 .estilos {
@@ -483,7 +885,7 @@ html{
 
 .titulo {
     width: 100%;
-    height: 400px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -492,7 +894,7 @@ html{
     background: 
         url(/Tatto/img/Brocha--top.png) top no-repeat, /* Imagen superior */
         url(/Tatto/img/Brocha-oscura-bottom.png) bottom no-repeat, /* Imagen inferior */
-        url(/Tatto/img/Fondo-Galeria.jpg) center/cover no-repeat fixed; /* Fondo principal */
+        url(/Tatto/img/Fondo-Galeria.2jpg.jpg) center/cover no-repeat fixed; /* Fondo principal */
     background-size: contain, contain, cover; /* Tamaños de las capas */
 }
 
@@ -798,9 +1200,9 @@ html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     gap: 20px;
 }
+
 
 
 .citas-hero h1{
