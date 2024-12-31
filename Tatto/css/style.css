@@ -111,7 +111,7 @@ html{
     .nav__close {
     opacity: 0;
     }
-    
+
     /* NAVEGACION PARA DISPOSITIVOS MOBILES */
     
     @media screen and (max-width: 1118px) {
@@ -211,17 +211,15 @@ html{
     
     }
     
-    /* MUESTRA EL MENU DESPLEGABLE DE HOME */
-    .menu_desplegable__item:hover .menu_desplegable__menu{
-    max-height: 1000px;
-    transition: max-height .4s ease-in;
+    .menu_desplegable__menu.show-submenu {
+        max-height: 1000px; /* Permite que el contenido se despliegue */
     }
     
-    /* ROTA LA FLECHA*/
-    
-    .menu_desplegable__item:hover .menu_desplegable__arrow {
-    transform: rotate(180deg);
+    .menu_desplegable__arrow.rotate-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.4s ease-in-out;
     }
+
     
     
     /*=============== MEDIA QUERIES ===============*/
@@ -241,6 +239,19 @@ html{
     @media screen and (min-width: 1118px) {
     .container {
         margin-inline: auto;
+    }
+
+    
+    /*MUESTRA EL MENU DESPLEGABLE DE HOME*/
+    .menu_desplegable__item:hover .menu_desplegable__menu{
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+    }
+    
+    /* ROTA LA FLECHA*/
+    
+    .menu_desplegable__item:hover .menu_desplegable__arrow {
+    transform: rotate(180deg);
     }
     
     .nav {
@@ -304,6 +315,25 @@ html{
         pointer-events: initial;
         transition: top .3s;
     }
+
+            /* Submenú oculto por defecto */
+        .menu_desplegable__menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+    
+        /* Mostrar submenú */
+        .menu_desplegable__menu.show-submenu {
+            max-height: 1000px; /* Un valor alto para permitir que se despliegue */
+        }
+    
+        /* Rotar flecha cuando el submenú está activo */
+        .menu_desplegable__arrow.rotate-arrow {
+            transform: rotate(180deg);
+            transition: transform 0.4s ease-in-out;
+        }
+        
     
     }
 
@@ -315,7 +345,7 @@ html{
     background-image: url(/Tatto/img/HeroTatto.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 856px;
+    height: 100vh;
     width: 100%;
     background-position: center;
 }
@@ -324,15 +354,27 @@ html{
     position: absolute;
     background-color: rgba(0, 0, 0, .7);
     background-color: rgba(0 0 0 / 70% );
-    height: 856px;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    animation: myAnim 2s ease 0s 1 normal forwards;
-    gap: 20px;
 
+}
+
+.hero-animacion{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+.hero-animacion img{
+    margin-top: -200px;
 }
 
 @keyframes myAnim {
@@ -522,6 +564,10 @@ html{
     transition: 0.5s;
 }
 
+.team-info h3{
+    font-family: "Rye", serif;
+}
+
 .team-item:hover .team-info .button {
     opacity: 1;
     transition-delay: 0.1s;
@@ -565,200 +611,15 @@ html{
     }
 }
 
-/*
-.Main{
-    width: 100%;
-    height: 1200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container_main{
-    width: auto;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    place-items: center;
-    justify-items: center;
-    gap: 100px;
-}
-
-.container_main img{
-    width: 600px;
-    height: 600px;
-}
-
-.container_main .card{
-    width: 650px;
-    height: auto;
-    text-align: center;
-}
-
-.card:nth-child(2){
-    margin-top: -300px;
-}
-.card h1{
-    font-size: 2rem;
-    color: #ffffff;
-    margin: 20px;
-}
-.card p{
-    color: white;
-    width: 78%;
-    text-align: center;
-    margin: 10px auto;
-}
-
-.card a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: .3s all ease;
-}
-
-.card a:hover{
-    color: #c0a372;
-}
-
-.card .linea-blanca{
-    display: block; 
-    background-color: #6d6b68; 
-    height: 2px; 
-    width: 20%; 
-    margin:10px  auto; 
-}
-
-@media (max-width: 950px){
-    .container_main{
-        width: auto;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        place-items: center;
-        justify-items: center;
-    }
-
-    .container_main img{
-        width: 300px;
-        height: 300px;
-    }
-
-    .card p{
-        color: white;
-        width: 90%;
-        text-align: center;
-        margin: 10px auto;
-    }
-
-    .container_main .card{
-        width: 100%;
-        height: auto;
-        text-align: center;
-    }
-
-    .card:nth-child(2){
-        margin-top: 10px;
-    }
-}
-   
-
-/*
-.container_main{
-    z-index: 1;
-    max-width: 1000px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 20px;
-    margin: 0 auto;
-    /*box-shadow: 0px 0px 100px 0px #1a1a1a;
-    /*box-shadow: 0 2px 5px rgba(211, 200, 200, 0.1);
-}
-
-.container_main img{
-    border-radius: 20px;
-    max-width: 100%;
-    height: auto;
-}
-.conocenos, .Cuidados {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px; 
-    border-radius: 20px;
-    padding: 20px; 
-}
-
-.info{
-    display: grid;
-    place-items: center;
-    margin: auto; 
-    gap: 1rem;
-}
-
-.info h1{
-    color: white;
-    font-size: 45px;
-    font-family: "Rye", serif;
-}
-
-.info .boton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffff;
-    height: 50px;
-    width: 180px;
-    border-radius: 10px;
-    background-color: #c0a372;
-    font-weight: bold;
-    font-size: 20px;
-    transition: .5s ease;
-}
-
-.info .boton:hover{
-    background-color: #d1ba92;
-}
-
-@media (max-width: 768px) {
-    .container_main {
-        padding: 20px; 
-    }
-
-    .conocenos, .Cuidados {
-        width: 100%; 
-        flex-direction: column; 
-    }
-
-    .info h1 {
-        font-size: 1.8rem; 
-    }
-
-    .info .boton {
-        width: 100%; 
-        font-size: 16px;
-    }
-    .Cuidados .info {
-        order: 2; 
-    }
-    .Cuidados .img {
-        order: 1; 
-    }
-}*/
-
 /*==================== MAIN =================*/
 
 .bienvenida{
     width: 100%;
     height: auto;
-    display: grid;
-    grid-template-columns: 1fr 500px;
-    place-items: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #040404; /* Fondo de color sólido */
         background-image: url(/Tatto/img/Brocha-oscura-bottom.png); /* Imagen de fondo */
         background-size: contain; /* Ajustar la imagen al ancho disponible */
@@ -766,6 +627,7 @@ html{
         background-position: bottom; /* Colocar la imagen en la parte inferior */
     position: relative; 
 }
+
 
 .bienvenida-txt{
     width: 60%;
@@ -780,9 +642,11 @@ html{
 }
 
 .bienvenida-txt h2{
-    font-size: 3.5rem;
+    font-size: 3.6rem;
     color: white;
+    font-family: "Rye", serif;
 }
+
 
 .bienvenida-txt h5{
     margin-top: 30px;
@@ -798,16 +662,17 @@ html{
     color: white;
 }
 
-.bienvenida-txt .link {
+.link {
     position: relative; 
     color: white;
     border-bottom: 1px solid #C0A372;
     text-decoration: none;
     transition: color 0.3s ease;
     display: inline-block;
+   padding: 0px 3px;
 }
 
-.bienvenida-txt .link::after {
+.link::after {
     content: '';
     position: absolute;
     left: 0;
@@ -820,11 +685,11 @@ html{
     transition: height 0.3s ease, background-color 0.3s ease; 
 }
 
-.bienvenida-txt .link:hover {
+.link:hover {
     color: black;
 }
 
-.bienvenida-txt .link:hover::after {
+.link:hover::after {
     background-color: #c0a372; 
     height: 100%; 
 }
@@ -855,9 +720,9 @@ html{
 
     .bienvenida-txt p {
         width: 100%;
-        font-size: 16px; 
-        text-align: center;
-        padding: 0px 10px;
+        font-size: 20px; 
+        text-align: justify;
+        padding: 0px 20px;
     }
 }
 
@@ -871,7 +736,7 @@ html{
     }
 
     .bienvenida-txt p {
-        font-size: 14px; 
+        font-size: 16px; 
     }
 }
 
@@ -880,7 +745,6 @@ html{
     width: 100%;
     display: grid;
     place-items: center;
-    margin: auto;
 }
 
 .titulo {
@@ -911,9 +775,9 @@ html{
 .container-styles {
     width: 100%;
     max-width: 1100px;
-    margin-top: 100px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
+    margin-top: 100px;
     gap: 20px;
 }
 
@@ -1055,6 +919,7 @@ html{
         background-size: cover;
         grid-column: 1; 
         grid-row: 1; 
+        width: 90%;
     }
     
     .blackwork {
@@ -1062,6 +927,7 @@ html{
         background-size: cover;
         grid-column: 1; 
         grid-row: 2; 
+        width: 90%;
     }
     
     .tradicional {
@@ -1069,6 +935,7 @@ html{
         background-size: cover;
         grid-column: 1; 
         grid-row: 3; 
+        width: 90%;
     }
     
     .geometrico {
@@ -1076,26 +943,14 @@ html{
         background-size: cover;
         grid-column: 1; 
         grid-row: 4; 
+        width: 90%;
     }
-
     .overlay {
-        position: absolute;
-        top: 100px;
-        left: 0;
-        background: transparent;
-        color: white;
-        /*font-size: 30px;*/
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 1;
-        cursor: pointer;
+        opacity: 1; 
+        transform: scale(1); 
+        background: rgba(0, 0, 0, 0.7); 
     }
 
-    .style-item:hover .overlay {
-        animation:none;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1144,21 +999,6 @@ html{
         height: 300px; /* Ajusta según tus necesidades */
     }
 
-    .overlay {
-        position: absolute;
-        top: 100px;
-        left: 0;
-        background: transparent;
-        color: white;
-        /*font-size: 30px;*/
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 1;
-        cursor: pointer;
-    }
-
 }
 
 @media (max-width: 460px){
@@ -1180,7 +1020,7 @@ html{
 
 
 .citas{
-    margin-top: 170px;
+
     height: var(--header-height);
     background-image: url(/Tatto/img/MujerEspalda.png);
     background-repeat: no-repeat;
@@ -1231,12 +1071,40 @@ html{
 @media (max-width: 668px){
     .citas-hero h1{
         text-align: center;
+        width: 95%;
     }
 }
 
+/* ==================== Icono ==================== */
+
+.icono-fijo {
+    position: fixed; 
+    bottom: 20px;   
+    right: 20px;    
+    z-index: 1000;  
+}
+
+.icono-fijo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #25d366; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 50%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    font-size: 24px; 
+    transition: .3s all;
+}
+
+/* Efecto hover */
+.icono-fijo a:hover {
+    background-color: #128c7e; 
+}
 
 /* ==================== FOOTER ==================== */
-
 
 .footer{
     width: 100%;
@@ -1264,11 +1132,42 @@ html{
 }
 
 .datos {
+    display: flex;
     flex-direction: column;
     color: white;
     padding: 0px 30px;
 }
 
+.direccion .link {
+    position: relative;
+    color: white; /* Color inicial del texto */
+    border-bottom: 1px solid #C0A372;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 0px 3px;
+    z-index: 1;
+}
+
+.direccion .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #c0a372; /* Fondo en hover */
+    z-index: -1; /* Envía el fondo detrás del texto */
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.direccion .link:hover {
+    color: black; /* Mantén el texto blanco */
+}
+
+.direccion .link:hover::after {
+    height: 100%; /* Cubre todo el enlace con el fondo */
+}
 
 
 .descripcion{
@@ -1301,8 +1200,15 @@ html{
     margin-top: 10px;
 }
 
+.Redes-sociales{
+    width: 100%;
+}
 
-
+.Redes-sociales .iconos{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
 .Redes-sociales i{
     color: white;
     margin-top: 30px;
@@ -1316,8 +1222,21 @@ html{
     cursor: pointer;
 }
 
-
+@media (max-width: 1024px){
+    .footer{
+        grid-template-columns: 1fr 1fr;
+    }
+    .Redes-sociales{
+        padding: 0 30px;
+    }
+    .Redes-sociales .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
    
+
 
 @media (max-width: 778px){
     
@@ -1341,9 +1260,13 @@ html{
         place-items: center;
     }
 
+    .Redes-sociales .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
-
-
 
 
 

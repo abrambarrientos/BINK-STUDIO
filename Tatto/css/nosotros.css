@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 :root {
     --header-height: 3.5rem;
     
@@ -30,7 +33,7 @@
     body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    background-color: black ;
+    background-color: black;
     padding-top: var(--header-height);
     }
     
@@ -55,7 +58,7 @@
         background-color: black;
         height: 80px; 
         box-shadow: 0 2px 16px hsla(220, 6%, 59%, 0.3);
-        z-index: 100;
+        z-index: 1000;
     }
     
     /*=============== NAV ===============*/
@@ -108,7 +111,7 @@
     .nav__close {
     opacity: 0;
     }
-    
+
     /* NAVEGACION PARA DISPOSITIVOS MOBILES */
     
     @media screen and (max-width: 1118px) {
@@ -208,17 +211,15 @@
     
     }
     
-    /* MUESTRA EL MENU DESPLEGABLE DE HOME */
-    .menu_desplegable__item:hover .menu_desplegable__menu{
-    max-height: 1000px;
-    transition: max-height .4s ease-in;
+    .menu_desplegable__menu.show-submenu {
+        max-height: 1000px; /* Permite que el contenido se despliegue */
     }
     
-    /* ROTA LA FLECHA*/
-    
-    .menu_desplegable__item:hover .menu_desplegable__arrow {
-    transform: rotate(180deg);
+    .menu_desplegable__arrow.rotate-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.4s ease-in-out;
     }
+
     
     
     /*=============== MEDIA QUERIES ===============*/
@@ -238,6 +239,19 @@
     @media screen and (min-width: 1118px) {
     .container {
         margin-inline: auto;
+    }
+
+    
+    /*MUESTRA EL MENU DESPLEGABLE DE HOME*/
+    .menu_desplegable__item:hover .menu_desplegable__menu{
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+    }
+    
+    /* ROTA LA FLECHA*/
+    
+    .menu_desplegable__item:hover .menu_desplegable__arrow {
+    transform: rotate(180deg);
     }
     
     .nav {
@@ -301,6 +315,25 @@
         pointer-events: initial;
         transition: top .3s;
     }
+
+            /* Submenú oculto por defecto */
+        .menu_desplegable__menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+    
+        /* Mostrar submenú */
+        .menu_desplegable__menu.show-submenu {
+            max-height: 1000px; /* Un valor alto para permitir que se despliegue */
+        }
+    
+        /* Rotar flecha cuando el submenú está activo */
+        .menu_desplegable__arrow.rotate-arrow {
+            transform: rotate(180deg);
+            transition: transform 0.4s ease-in-out;
+        }
+        
     
     }
 
@@ -308,79 +341,7 @@
     
 /*======================= IMAGEN EMPRESA ==========================*/
 
-/*
-.hero{
-    height: 100vh;
-    width: 100%;   
-}
 
-
-.video{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#video{
-    height: 100vh;
-    pointer-events: none;
-    user-select: none;
-}
-
-.contenido-hero{
-    position: absolute;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    width: 100% !important;
-    height: 100vh;
-    top: var(--header-height);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
-
-.contenido-hero h1{
-    font-size: 3rem;
-    font-family: "Rye", serif;
-    color: #C0A372;
-    text-align: center;
-}
-
-.contenido-hero h3{
-    color: red;
-    font-family: "Rye", serif;
-    text-align: center;
-}
-
-.contenido-hero p{
-    font-size: 1.3rem;
-    width: 70%; 
-    color: #ffffff;
-}
-
-@media (max-width: 668px){
-    .contenido-hero{
-        width: 100%;
-    }
-
-    .video{
-        width: 100%;
-        max-width: 200px;
-    }
-    #video{
-        width: 550px;
-        height: 100vh;
-    }
-
-    .contenido-hero h1{
-        font-size: 1.3rem;
-    }
-}*/
    
 .hero {
     position: relative;
@@ -418,7 +379,7 @@
 
 .hero .info p {
     margin-top: 10px;
-    font-size: 1.2em;
+    font-size: 16px;
     line-height: 1.5;
     text-align: center;
     width: 100%;
@@ -438,8 +399,36 @@
 }
 
 
-/* ==================== FOOTER ==================== */
+/* ==================== Icono ==================== */
 
+.icono-fijo {
+    position: fixed; 
+    bottom: 20px;   
+    right: 20px;    
+    z-index: 1000;  
+}
+
+.icono-fijo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #25d366; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 50%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    font-size: 24px; 
+    transition: .3s all;
+}
+
+/* Efecto hover */
+.icono-fijo a:hover {
+    background-color: #128c7e; 
+}
+
+/* ==================== FOOTER ==================== */
 
 .footer{
     width: 100%;
@@ -450,7 +439,6 @@
     background-color: black;
     gap: 30px;
     padding: 50px;
-    margin-top: 100px;
     border-top: 1px solid #434343;
 }
 
@@ -468,11 +456,42 @@
 }
 
 .datos {
+    display: flex;
     flex-direction: column;
     color: white;
     padding: 0px 30px;
 }
 
+.direccion .link {
+    position: relative;
+    color: white; /* Color inicial del texto */
+    border-bottom: 1px solid #C0A372;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 0px 3px;
+    z-index: 1;
+}
+
+.direccion .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #c0a372; /* Fondo en hover */
+    z-index: -1; /* Envía el fondo detrás del texto */
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.direccion .link:hover {
+    color: black; /* Mantén el texto blanco */
+}
+
+.direccion .link:hover::after {
+    height: 100%; /* Cubre todo el enlace con el fondo */
+}
 
 
 .descripcion{
@@ -505,8 +524,15 @@
     margin-top: 10px;
 }
 
+.Redes-sociales{
+    width: 100%;
+}
 
-
+.Redes-sociales .iconos{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
 .Redes-sociales i{
     color: white;
     margin-top: 30px;
@@ -520,8 +546,21 @@
     cursor: pointer;
 }
 
-
+@media (max-width: 1024px){
+    .footer{
+        grid-template-columns: 1fr 1fr;
+    }
+    .Redes-sociales{
+        padding: 0 30px;
+    }
+    .Redes-sociales .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
    
+
 
 @media (max-width: 778px){
     
@@ -545,4 +584,11 @@
         place-items: center;
     }
 
+    .Redes-sociales .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
+

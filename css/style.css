@@ -324,6 +324,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
+}
+
+.img_index img{
     animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
@@ -363,7 +367,7 @@
 .card{
     position: relative;
     width: 20%;
-    height: 600px;
+    height: 30rem;
     border-radius: .75rem;
     background-size: cover;
     cursor: pointer;
@@ -452,7 +456,7 @@
 .card1{
     position: relative;
     width: 20%;
-    height: 600px;
+    height: 30rem;
     border-radius: .75rem;
     background-size: cover;
     cursor: pointer;
@@ -542,7 +546,7 @@ input{
 }
 
 .card[for="c1"]{
-    background: url(../img/Tattoo1.png.jpg);
+    background: url(../img/Tattoo1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }

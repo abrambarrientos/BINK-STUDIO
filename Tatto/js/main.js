@@ -1,14 +1,28 @@
 /*=============== MOSTRAR MENU ===============*/
-const showMenu = (toggleId, navId) =>{ // Declaramos una constante y le mandamos 2 argumentos
-    const toggle = document.getElementById(toggleId), // OBTIENE REFERENCIAS A 2 ELEMENTOS DEL OBJETO MODELO
-        nav = document.getElementById(navId)
+const showMenu = (toggleId, navId) => {
+    const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId);
 
-    toggle.addEventListener('click', () =>{ // AÑADIMOS UN EVENTO CLICK PARA QUE HAGA X COSAS
-        // Añade la clase "show-menu" al nav menu 
-        nav.classList.toggle('show-menu')
-        // AÑADE LA CLASE show-icon Y CAMBIA EL ICONO
-        toggle.classList.toggle('show-icon')
-    })
-}
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('show-menu');
+            toggle.classList.toggle('show-icon');
+        });
+    }
+};
 
-    showMenu('nav-toggle','nav-menu')
+showMenu('nav-toggle', 'nav-menu');
+
+/*=============== MOSTRAR/SUBMENU ===============*/
+const subMenuItems = document.querySelectorAll('.menu_desplegable__item'); // Selecciona los elementos con submenús
+
+subMenuItems.forEach((item) => {
+    const subMenu = item.querySelector('.menu_desplegable__menu'); // Encuentra el submenú correspondiente
+    const arrow = item.querySelector('.menu_desplegable__arrow'); // Encuentra el ícono de flecha
+
+    item.addEventListener('click', () => {
+        // Alterna la clase que despliega el submenú
+        subMenu.classList.toggle('show-submenu');
+        arrow.classList.toggle('rotate-arrow');
+    });
+});

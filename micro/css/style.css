@@ -338,9 +338,19 @@ html{
     align-items: center;
     justify-content: center;
     gap: 20px;
-    animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
+
+.hero-animacion{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
 
 @keyframes myAnim {
 	0% {
@@ -522,7 +532,7 @@ html{
     }
     
     .description {
-        font-size: 14px;
+        font-size: 16px;
     }
     
     .signature {
@@ -534,6 +544,10 @@ html{
         margin-bottom: 100px;
     }
 }
+
+
+
+
 
 /*================= CONFIANZA ==========*/
 .confianza {
@@ -617,6 +631,7 @@ html{
 
     .confianza p {
         font-size: 0.9rem;
+        text-align: justify;
     }
 }
 
@@ -726,7 +741,10 @@ html{
         margin-top: 180px;
         text-align: center;
     }
+
+
 }
+
 
 
 
@@ -819,6 +837,7 @@ html{
         grid-template-columns: 1fr;
         place-items: center;
         gap: 20px;
+        background: linear-gradient(0deg, #9ba697 0%, #ffffff00 100%);
     }
 
     .citas h1{
@@ -837,34 +856,33 @@ html{
 
     .citas .img img {
         margin-top: 20px;
-        max-width: 100%;
+        width: 100%;
         height: auto;
     }
 }
 
-    
+      
 /* ==================== FOOTER ==================== */
-
 
 .footer{
     width: 100%;
     height: auto;
     display: grid;
-    margin-top: 100px;
     grid-template-columns: 400px 500px 300px;
     justify-content: center;
+    background-color: #D8D4CA;
     gap: 30px;
     padding: 50px;
     border-top: 1px solid #434343;
 }
 
 .footer h1{
-    font-family: 'Posterama';
-    color: white;
+    font-family: "Rye", serif;
+    color: #333536;
     font-size: 25px;
 }
 .footer p{
-    color: white;
+    color: #333536;
 }
 
 .descripcion p{
@@ -872,11 +890,42 @@ html{
 }
 
 .datos {
+    display: flex;
     flex-direction: column;
-    color: white;
+    color: #333536;
     padding: 0px 30px;
 }
 
+.direccion .link {
+    position: relative;
+    color: #333536; /* Color inicial del texto */
+    border-bottom: 1px solid #434343;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 0px 3px;
+    z-index: 1;
+}
+
+.direccion .link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: #434343; /* Fondo en hover */
+    z-index: -1; /* Envía el fondo detrás del texto */
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+.direccion .link:hover {
+    color: white; /* Mantén el texto blanco */
+}
+
+.direccion .link:hover::after {
+    height: 100%; /* Cubre todo el enlace con el fondo */
+}
 
 
 .descripcion{
@@ -900,6 +949,7 @@ html{
     color: white;
     font-weight: bold;
     padding: 5px;
+    border-bottom: 1px solid #C0A372;
     transition: .3s all ease;
 }
 
@@ -908,8 +958,15 @@ html{
     margin-top: 10px;
 }
 
+.Redes-sociales{
+    width: 100%;
+}
 
-
+.Redes-sociales .iconos{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
 .Redes-sociales i{
     color: white;
     margin-top: 30px;
@@ -923,8 +980,21 @@ html{
     cursor: pointer;
 }
 
-
+@media (max-width: 1024px){
+    .footer{
+        grid-template-columns: 1fr 1fr;
+    }
+    .Redes-sociales{
+        padding: 0 30px;
+    }
+    .Redes-sociales .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
    
+
 
 @media (max-width: 778px){
     
@@ -948,7 +1018,44 @@ html{
         place-items: center;
     }
 
+    .Redes-sociales .iconos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
+
+/* ==================== Icono ==================== */
+
+.icono-fijo {
+    position: fixed; 
+    bottom: 20px;   
+    right: 20px;    
+    z-index: 1000;  
+}
+
+.icono-fijo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #25d366; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 50%; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    font-size: 24px; 
+    transition: .3s all;
+}
+
+/* Efecto hover */
+.icono-fijo a:hover {
+    background-color: #128c7e; 
+}
+
+
 
 
 
