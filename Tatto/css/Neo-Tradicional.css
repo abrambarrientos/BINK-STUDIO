@@ -376,9 +376,6 @@ html{
         background-position: bottom; /* Colocar la imagen en la parte inferior */
     }
     
-    
-    
-
     .descripcion-contenido h1, p{
         font-size: 20px;
         text-align: center;
@@ -500,6 +497,17 @@ html{
             place-items: center;
         }
     }
+
+    @media (max-width: 665px){
+        .cabecera h1{
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            font-family: var(--Fuente-Web);
+        }
+    }
+       
+    
        
     
     @media (max-width: 448px){

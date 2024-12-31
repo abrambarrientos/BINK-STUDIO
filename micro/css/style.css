@@ -218,16 +218,13 @@ html{
     
     }
     
-    /* MUESTRA EL MENU DESPLEGABLE DE HOME */
-    .menu_desplegable__item:hover .menu_desplegable__menu{
-    max-height: 1000px;
-    transition: max-height .4s ease-in;
+    .menu_desplegable__menu.show-submenu {
+        max-height: 1000px; /* Permite que el contenido se despliegue */
     }
     
-    /* ROTA LA FLECHA*/
-    
-    .menu_desplegable__item:hover .menu_desplegable__arrow {
-    transform: rotate(180deg);
+    .menu_desplegable__arrow.rotate-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.4s ease-in-out;
     }
     
     
@@ -429,7 +426,7 @@ html{
 /*======================== MAIN =====================*/
   
   .hero-section {
-    margin-top: 50px;
+    width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -439,7 +436,8 @@ html{
 }
 
 .container-hero {
-    height: 70vh;
+    margin-top: 50px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,15 +1,43 @@
-/*=============== MOSTRAR MENU ===============*/
-const showMenu = (toggleId, navId) =>{ // Declaramos una constante y le mandamos 2 argumentos
-    const toggle = document.getElementById(toggleId), // OBTIENE REFERENCIAS A 2 ELEMENTOS DEL OBJETO MODELO
-        nav = document.getElementById(navId)
+document.addEventListener('DOMContentLoaded', function () {
+    var header = document.getElementById('myHeader'); // Referencia al header
+    var page = document.body; // Usamos body como contenedor principal
+    var openMenuButton = document.getElementById('openmenu'); // Botón para abrir menú
 
-    toggle.addEventListener('click', () =>{ // AÑADIMOS UN EVENTO CLICK PARA QUE HAGA X COSAS
-        // Añade la clase "show-menu" al nav menu 
-        nav.classList.toggle('show-menu')
-        // AÑADE LA CLASE show-icon Y CAMBIA EL ICONO
-        toggle.classList.toggle('show-icon')
-    })
-}
+    // Agrega o quita la clase 'sticky' al hacer scroll
+    window.addEventListener('scroll', function () {
+        page.classList.remove('menuopen'); // Asegura que la clase 'menuopen' se remueva
+        if (window.scrollY >= 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    });
 
-    showMenu('nav-toggle','nav-menu')
+    // Listener para abrir el menú al hacer clic en el botón
+    if (openMenuButton) {
+        openMenuButton.addEventListener('click', function () {
+            header.classList.remove('sticky'); // Quita la clase sticky al abrir menú
+            page.classList.toggle('menuopen'); // Alterna la clase 'menuopen'
+        });
+    }
 
+    // Enlaces internos para desplazamiento suave
+    var links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            // Evita la acción predeterminada
+            event.preventDefault();
+
+            // Obtiene el elemento de destino
+            var targetId = this.getAttribute('href');
+            var targetElement = document.querySelector(targetId);
+
+            // Desplazamiento suave al destino
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});

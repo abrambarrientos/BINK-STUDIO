@@ -213,26 +213,24 @@
     }
     
     .menu_desplegable__menu{
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .4s ease-out;
-    border: 1px solid #434343;
-    border-radius: 15px;
-    background: #111111;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s ease-out;
+        border: 1px solid #434343;
+        border-radius: 15px;
+        background: #111111;
+        
+        }
+        
+        .menu_desplegable__menu.show-submenu {
+            max-height: 1000px; /* Permite que el contenido se despliegue */
+        }
+        
+        .menu_desplegable__arrow.rotate-arrow {
+            transform: rotate(180deg);
+            transition: transform 0.4s ease-in-out;
+        }
     
-    }
-    
-    /* MUESTRA EL MENU DESPLEGABLE DE HOME */
-    .menu_desplegable__item:hover .menu_desplegable__menu{
-    max-height: 1000px;
-    transition: max-height .4s ease-in;
-    }
-    
-    /* ROTA LA FLECHA*/
-    
-    .menu_desplegable__item:hover .menu_desplegable__arrow {
-    transform: rotate(180deg);
-    }
     
     
     /*=============== MEDIA QUERIES ===============*/
