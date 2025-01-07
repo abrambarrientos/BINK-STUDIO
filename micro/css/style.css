@@ -427,7 +427,7 @@ html{
   
   .hero-section {
     width: 100%;
-    height: auto;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -436,7 +436,7 @@ html{
 }
 
 .container-hero {
-    margin-top: 50px;
+    margin-top: 100px;
     height: auto;
     display: flex;
     justify-content: center;

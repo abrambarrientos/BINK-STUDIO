@@ -185,8 +185,8 @@
 
 .img_index{
   width: 100%;
-  height: 856px;
-  background: url(../img/Fondo-hero.png);
+  height: 100vh;
+  background: url(../img/Fondo-hero.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -420,13 +420,13 @@ input{
   background-repeat: no-repeat;
 }
 .card[for="c2"]{
-  background: url(../img/Barberia.png);
+  background: url(../img/Barberia.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .card1[for="c3"]{
-  background: url(../img/pigmentacion.png);
+  background: url(../img/pigmentacion.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -540,7 +540,6 @@ input{
       height: 350px;
   }
 }
- 
 
 
 .footer {
