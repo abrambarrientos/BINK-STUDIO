@@ -1,192 +1,206 @@
-
 :root {
   --header-height: 3.5rem;
-  
+
   /*========== COLORES ==========*/
   --black-color: hsl(220, 24%, 12%);
   --black-color-light: hsl(220, 24%, 15%);
   --black-color-lighten: hsl(220, 20%, 18%);
   --color-nav: #ffffff;
   /*========== FUENTES Y TIPOGRAFIA ==========*/
-  
+
   --body-font: "Montserrat", sans-serif;
   --normal-font-size: .938rem;
-  
+
   /*========== TAMAÑOS DE FUENTES ==========*/
   --font-regular: 400;
   --font-semi-bold: 600;
-  
+
   /*========== Z-INDEX ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
-  }
-  
-  
-  * {
+}
+
+
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  }
-  
-  body {
+}
+
+body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
 
-  }
-  
-  /*=============== CLASES REUTILIZABLES ===============*/
-  .container {
+}
+
+/*=============== CLASES REUTILIZABLES ===============*/
+.container {
   max-width: 1120px;
   margin-inline: 1.5rem;
-  }
-  ul {
-      list-style: none;
-  }
-      
-  a {
-      text-decoration: none;
-  }
-  
-  /*=============== HEADER ===============*/
+}
 
-  header {
-    z-index: 99999;
-    position: relative;
-  }
-  header #logo {
-    position: fixed;
-    top: 30px;
-    left: 0;
-    right: 0;
-    width: 100px;
-    height: auto;
-    margin: 0 auto;
-    opacity: 1;
-    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
-  }
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== HEADER ===============*/
+
+header {
+  z-index: 99999;
+  position: relative;
+}
+
+header #logo {
+  position: fixed;
+  top: 30px;
+  left: 0;
+  right: 0;
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  opacity: 1;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
+}
+
+header nav {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 700px;
+  margin: 0 auto;
+  top: 30px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 200px;
+  z-index: 9;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: 1s all;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  padding: 10px 25px;
+  line-height: 1;
+  font-size: 20px;
+  letter-spacing: 2px;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s;
+}
+
+header nav a:hover {
+  color: #000000;
+}
+
+header nav button {
+  -webkit-appearance: none;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
+  transform: scale(0);
+}
+
+header nav button span {
+  width: 40%;
+  background: #fff;
+  height: 2px;
+  display: block;
+  margin: 5px auto;
+  transform: scalex(0);
+  transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s margin ease-in 0s;
+}
+
+header nav button:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+header nav button:hover span {
+  margin: 10px auto;
+}
+
+header.sticky #logo {
+  top: 0;
+  transform: scale(0.8);
+  opacity: 0;
+  transition-delay: 0.5s;
+}
+
+header.sticky nav {
+  top: 20px;
+  padding: 0;
+  width: 90px;
+  height: 90px;
+  transition-delay: 0.5s;
+}
+
+header.sticky nav button {
+  transform: scale(1);
+  transition-delay: 0.6s;
+}
+
+header.sticky nav button span {
+  transform: scalex(1);
+  transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s, 0.3s margin ease-in 0s;
+}
+
+header.sticky nav a {
+  padding: 0;
+  opacity: 0;
+  letter-spacing: 0px;
+  transform: scale(0.3);
+  transition-delay: 0.2s;
+}
+
+@media (max-width: 665px) {
   header nav {
-    display: flex;
+    margin-top: 20px;
+    width: 95%;
     height: 100px;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    width: 700px;
-    margin: 0 auto;
-    top: 30px;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 200px;
-    z-index: 9;
-    -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: 1s all ;
   }
+
   header nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    display: block;
-    padding: 10px 25px;
-    line-height: 1;
-    font-size: 20px;
-    letter-spacing: 2px;
-    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.1s;
-  }
-  header nav a:hover{
-    color: #000000;
+    font-size: 15px;
+    padding: 10px 10px
   }
 
-  header nav button {
-    -webkit-appearance: none;
-    background: rgba(0, 0, 0, 0.3);
-    -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: absolute;
-    z-index: 99;
-    left: 0;
-    margin: auto;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
-    transform: scale(0);
-  }
-  header nav button span {
-    width: 40%;
-    background: #fff;
-    height: 2px;
-    display: block;
-    margin: 5px auto;
-    transform: scalex(0);
-    transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s margin ease-in 0s;
-  }
-  header nav button:hover {
-    border-color: rgba(255, 255, 255, 0.5);
-  }
-  header nav button:hover span {
-    margin: 10px auto;
-  }
-  
-  header.sticky #logo {
-    top: 0;
-    transform: scale(0.8);
-    opacity: 0;
-    transition-delay: 0.5s;
-  }
-  header.sticky nav {
-    top: 20px;
-    padding: 0;
-    width: 90px;
-    height: 90px;
-    transition-delay: 0.5s;
-  }
-  header.sticky nav button {
-    transform: scale(1);
-    transition-delay: 0.6s;
-  }
-  header.sticky nav button span {
-    transform: scalex(1);
-    transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s, 0.3s margin ease-in 0s;
-  }
-  header.sticky nav a {
-    padding: 0;
-    opacity: 0;
-    letter-spacing: 0px;
-    transform: scale(0.3);
-    transition-delay: 0.2s;
-  }
+  ;
 
-  @media (max-width: 665px){
-    header nav{
-      margin-top: 20px;
-      width: 95%;
-      height: 100px;
-    }
-    header nav a{
-      font-size: 15px;
-      padding: 10px 10px
-    };
 
-   
-  }
-     
-  
-  
+}
+
+
+
 
 /*======================= IMAGEN EMPRESA ==========================*/
 
-.img_index{
+.img_index {
   width: 100%;
   height: 100vh;
   background: url(../img/Fondo-hero.jpg);
@@ -196,24 +210,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
 
-.img_index img{
+.img_index img {
   margin-top: 100px;
   animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
 @keyframes myAnim {
-0% {
-  opacity: 0;
-  transform: translateY(-50px);
-}
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
 
-100% {
-  opacity: 1;
-  transform: translateY(0);
-}
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*======================= SECCION DE LOS NEGOCIOS ==========================*/
@@ -229,7 +243,8 @@
 }
 
 /*================== TATTOO =================*/
-.Tatto{
+.Tatto {
+  width: 100%;
   height: var(--header-height);
   background-image: url(/Tatto/img/HeroTatto.jpg);
   background-repeat: no-repeat;
@@ -238,12 +253,16 @@
   width: 100%;
   background-position: center;
   background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.contenido-Tattoo{
+.contenido-Tattoo {
   position: absolute;
   background-color: rgba(0, 0, 0, .7);
-  background-color: rgba(0 0 0 / 70% );
+  background-color: rgba(0 0 0 / 70%);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -253,7 +272,7 @@
 
 }
 
-.hero-animacion{
+.hero-animacion {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -263,13 +282,13 @@
 
 }
 
-.hero-animacion img{
+.hero-animacion img {
   margin-top: -200px;
 }
 
 
 
-.contenido-Tattoo .boton{
+.contenido-Tattoo .boton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -284,13 +303,13 @@
   margin-top: -150px;
 }
 
-.contenido-Tattoo .boton:hover{
+.contenido-Tattoo .boton:hover {
   background-color: #d1ba92;
 }
 
 /*================== BARBERIA =================*/
 
-.Barber{
+.Barber {
   height: var(--header-height);
   background-image: url(/barber/img/Hero.jpg);
   background-repeat: no-repeat;
@@ -299,12 +318,15 @@
   width: 100%;
   background-position: center;
   background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contenido-Barber{
+.contenido-Barber {
   position: absolute;
   background-color: rgba(0, 0, 0, .7);
-  background-color: rgba(0 0 0 / 70% );
+  background-color: rgba(0 0 0 / 70%);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -314,7 +336,7 @@
 
 }
 
-.hero-animacion{
+.hero-animacion {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -324,13 +346,13 @@
 
 }
 
-.hero-animacion img{
+.hero-animacion img {
   margin-top: -200px;
 }
 
 
 
-.contenido-Barber .boton{
+.contenido-Barber .boton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -345,14 +367,14 @@
   margin-top: -150px;
 }
 
-.contenido-Barber .boton:hover{
+.contenido-Barber .boton:hover {
   background-color: #d1ba92;
 }
 
 
 /*================== MICRO =================*/
 
-.Micro{
+.Micro {
   height: var(--header-height);
   background-image: url(/micro/img/ImgHero.jpg);
   background-repeat: no-repeat;
@@ -361,12 +383,14 @@
   width: 100%;
   background-position: center;
   background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.contenido-Micro{
-  position: absolute;
+.contenido-Micro {
   background-color: rgba(155, 166, 151, 0.7);
-    background-color: rgba(155 166 151 / 60% );
+  background-color: rgba(155 166 151 / 60%);
   height: 100vh;
   width: 100%;
   display: flex;
@@ -376,21 +400,17 @@
 
 }
 
-.hero-animacion{
+.hero-animacion {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
-.hero-animacion img{
-  margin-top: -200px;
-}
 
-.contenido-Micro .boton{
+
+.contenido-Micro .boton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -405,25 +425,28 @@
 }
 
 
-.contenido-Micro .boton:hover{
+
+.contenido-Micro .boton:hover {
   background-color: #bdbdbd;
 }
 
-@media (max-width:665px ){
-  .img_index img{
-      width: 300px;
-      height: 300px;
+@media (max-width:665px) {
+  .img_index img {
+    width: 300px;
+    height: 300px;
   }
-  .envoltura-negocios img{
-      width: 300px;
-      height: 300px;
+
+  .envoltura-negocios img {
+    width: 300px;
+    height: 300px;
   }
-  .envoltura-negocios .boton{
-      margin-top: 10px;
+
+  .envoltura-negocios .boton {
+    margin-top: 10px;
   }
 
 }
- 
+
 /*======================= FOOTER ==========================*/
 
 .footer {
@@ -431,9 +454,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff; 
+  background-color: #ffffff;
   border-top: 1px solid #888888;
-  color: #000000; 
+  color: #000000;
   padding: 20px;
   font-family: 'Arial', sans-serif;
   text-align: center;
@@ -445,7 +468,7 @@
 }
 
 .footer img:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .footer p {
@@ -459,8 +482,10 @@
 }
 
 .footer-divider hr {
-  width: 50px; /* Línea pequeña */
-  border: 1px solid #888888; /* Color de la línea */
+  width: 50px;
+  /* Línea pequeña */
+  border: 1px solid #888888;
+  /* Color de la línea */
   margin: 10px auto;
   opacity: 0.7;
 }
@@ -472,23 +497,22 @@
   color: #000000;
 }
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
   .footer {
-      padding: 15px;
+    padding: 15px;
   }
 
   .footer img {
-      width: 80px;
-      height: 80px;
+    width: 80px;
+    height: 80px;
   }
 
-  .footer p, 
+  .footer p,
   .footer-divider p {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
 
   .footer-divider hr {
-      width: 40px;
+    width: 40px;
   }
 }
