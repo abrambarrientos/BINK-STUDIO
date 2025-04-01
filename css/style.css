@@ -1,3 +1,4 @@
+
 :root {
   --header-height: 3.5rem;
   
@@ -31,6 +32,7 @@
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
+
   }
   
   /*=============== CLASES REUTILIZABLES ===============*/
@@ -97,6 +99,7 @@
   header nav a:hover{
     color: #000000;
   }
+
   header nav button {
     -webkit-appearance: none;
     background: rgba(0, 0, 0, 0.3);
@@ -197,6 +200,7 @@
 }
 
 .img_index img{
+  margin-top: 100px;
   animation: myAnim 2s ease 0s 1 normal forwards;
 }
 
@@ -218,329 +222,209 @@
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  /* padding: 50px; */
 }
 
-.contenedor{
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-}
-
-
-
-.card{
-  position: relative;
-  width: 20%;
-  height: 30rem;
-  border-radius: .75rem;
+/*================== TATTOO =================*/
+.Tatto{
+  height: var(--header-height);
+  background-image: url(/Tatto/img/HeroTatto.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 2rem;
-  margin: 0 10px;
-  display: flex;
-  align-items: flex-end;
-  transition: .6s cubic-bezier(.28, -0.03,0.99 );
-  background-color: #888888 ;
-  transition: width .8s cubic-bezier(0.25, 1, 0.5, 1);
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.card > .row{
-  color: white;
+.contenido-Tattoo{
+  position: absolute;
+  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0 0 0 / 70% );
+  height: 100vh;
+  width: 100%;
   display: flex;
-  flex-wrap: nowrap;
-}
-
-.card > .row > .titulo{
-  display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin-left: 40px;
-  overflow: hidden;
-  height: 80px;
-  width: 500px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .3s ease, transform .3s ease;
-  transition: all .3s ease;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.hero-animacion{
   width: 100%;
-  height: 33%; 
-  opacity: 0; 
-  transition: opacity .8s cubic-bezier(0.25, 1, 0.5, 1), transform .8s cubic-bezier(0.25, 1, 0.5, 1);
-  z-index: 1;  
-  transform: translateY(100%);
-}
-
-
-.card:hover::before {
-  opacity: 1;
-  transform: translateY(0);
-  position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(0deg, #000000 0%, #ffffff00 100%);
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-}
-
-
-.card:hover {
-  width: 800px;
-  transition: width .8s cubic-bezier(0.25, 1, 0.5, 1); 
-}
-
-.card:hover .titulo {
-  opacity: 1;
-  transform: translateY(0); 
-}
-
-
-.card .titulo {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all .3s ease;
-  z-index: 2;
-}
-
-
-.card1{
-  position: relative;
-  width: 20%;
-  height: 30rem;
-  border-radius: .75rem;
-  background-size: cover;
-  cursor: pointer;
-  overflow: hidden;
-  border-radius: 2rem;
-  margin: 0 10px;
-  display: flex;
-  align-items: flex-end;
-  transition: .6s cubic-bezier(.28, -0.03,0.99 );
-  background-color: #888888 ;
-  transition: width .8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.card1 > .row{
-  color: white;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.card1> .row > .titulo{
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
-  margin-left: 40px;
-  overflow: hidden;
-  height: 80px;
-  width: 500px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .3s ease, transform .3s ease;
-  transition: all .3s ease;
+
 }
 
-.card1::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.hero-animacion img{
+  margin-top: -200px;
+}
+
+
+
+.contenido-Tattoo .boton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffff;
+  height: 60px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #c0a372;
+  font-weight: bold;
+  font-size: 20px;
+  transition: .5s ease;
+  margin-top: -150px;
+}
+
+.contenido-Tattoo .boton:hover{
+  background-color: #d1ba92;
+}
+
+/*================== BARBERIA =================*/
+
+.Barber{
+  height: var(--header-height);
+  background-image: url(/barber/img/Hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   width: 100%;
-  height: 33%; 
-  opacity: 0; 
-  transition: opacity .8s cubic-bezier(0.25, 1, 0.5, 1), transform .8s cubic-bezier(0.25, 1, 0.5, 1);
-  z-index: 1;  
-  transform: translateY(100%);
+  background-position: center;
+  background-attachment: fixed;
 }
 
-
-.card1:hover::before {
-  opacity: 1;
-  transform: translateY(0);
+.contenido-Barber{
   position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(0deg, #9BA697 0%, #ffffff00 100%);
-      color: white;
-      font-size: 30px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0 0 0 / 70% );
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.hero-animacion{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.hero-animacion img{
+  margin-top: -200px;
 }
 
 
-.card1:hover {
-  width: 800px;
-  transition: width .8s cubic-bezier(0.25, 1, 0.5, 1); 
+
+.contenido-Barber .boton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffff;
+  height: 60px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #c0a372;
+  font-weight: bold;
+  font-size: 20px;
+  transition: .5s ease;
+  margin-top: -150px;
 }
 
-.card1:hover .titulo {
-  opacity: 1;
-  transform: translateY(0); 
+.contenido-Barber .boton:hover{
+  background-color: #d1ba92;
 }
 
 
-.card1 .titulo {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all .3s ease;
-  z-index: 2;
-}
+/*================== MICRO =================*/
 
-input{
-  display: none;
-}
-
-.card[for="c1"]{
-  background: url(../img/Tattoo1.jpg);
-  background-size: cover;
+.Micro{
+  height: var(--header-height);
+  background-image: url(/micro/img/ImgHero.jpg);
   background-repeat: no-repeat;
-}
-.card[for="c2"]{
-  background: url(../img/Barberia.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.card1[for="c3"]{
-  background: url(../img/pigmentacion.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+.contenido-Micro{
+  position: absolute;
+  background-color: rgba(155, 166, 151, 0.7);
+    background-color: rgba(155 166 151 / 60% );
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.card:nth-child(odd) {
-  transform: translateY(-20px);
-}
-.card:nth-child(even) {
-  transform: translateY(20px);
-}
+.hero-animacion{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-@media (max-width: 768px) {
-
-  .card {
-      width: 100%;
-      height: 300px; 
-      margin: 10px 0;
-      transition: none;
-      background-color: black;
-      background-size: contain; 
-      background-position: center; 
-      background-repeat: no-repeat; 
-  }
-
-  .card1 {
-      width: 100%;
-      height: 300px; 
-      margin: 10px 0;
-      transition: none;
-      background-size: contain;
-      background-position: center; 
-      background-repeat: no-repeat; 
-  }
-
-  .contenedor {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 0px 20px;
-  }
-
-  .card:hover,
-  .card1:hover {
-      width: 100%;
-  }
-
-  .row,
-  .titulo h1 {
-    position: relative;
-      font-size: 20px;
-      z-index: 2;
-  }
-
-  .card .card .overlay{
-    opacity: 0;
-  }
-
-  .card:nth-child(odd) {
-    transform: translateY(0px);
-  }
-  .card:nth-child(even) {
-    transform: translateY(0px);
-  }
-  .card::before {
-      opacity: 1;
-      transform: translateY(0);
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(0deg, #000000 0%, #ffffff00 100%);
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-
-  .card1::before {
-    opacity: 1;
-    transform: translateY(0);
-    position: absolute;
-        top: 0px;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(0deg, #9BA697 0%, #ffffff00 100%);
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-  }
-
-  .card:hover, .card1:hover {
-      width: 100%; /* No cambiar tamaño al hacer hover en móviles */
-  }
-
-  .card:nth-child(odd), .card:nth-child(even) {
-      transform: translateY(0px); /* Sin efecto de desplazamiento en móviles */
-  }
-  
 }
 
-@media (max-width: 460px){
+.hero-animacion img{
+  margin-top: -200px;
+}
+
+.contenido-Micro .boton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  height: 60px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  transition: .5s ease;
+}
+
+
+.contenido-Micro .boton:hover{
+  background-color: #bdbdbd;
+}
+
+@media (max-width:665px ){
   .img_index img{
-      width: 350px;
-      height: 350px;
+      width: 300px;
+      height: 300px;
   }
-}
+  .envoltura-negocios img{
+      width: 300px;
+      height: 300px;
+  }
+  .envoltura-negocios .boton{
+      margin-top: 10px;
+  }
 
+}
+ 
+/*======================= FOOTER ==========================*/
 
 .footer {
   display: flex;
